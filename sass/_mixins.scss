@@ -1,0 +1,130 @@
+//## Mixins.
+
+// Rem output with px fallback for old browsers
+@mixin font-size($sizeValue: 1.6, $line: $sizeValue * 1.3) {
+  font-size: ($sizeValue * 10) + px;
+  line-height: ($line * 10) + px;
+  font-size: $sizeValue + rem;
+  line-height: $line + rem;
+}
+
+// Text Shadow
+@mixin text-shadow($color: $gray, $porcentage: 0.75) {
+  text-shadow: 2px 2px 5px rgba($color, $porcentage);
+}
+
+// Center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+  content: "";
+  display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+  clear: both;
+  height: 0;
+  line-height: 0;
+}
+
+// Transitions
+@mixin transition($property:all, $duration:0.2s, $timing:ease-in-out) {
+  -webkit-transition: $property $duration $timing;
+  -moz-transition: $property $duration $timing;
+  -o-transition: $property $duration $timing;
+  transition: $property $duration $timing;
+}
+
+@mixin transform($arguments) {
+  -webkit-transform: $arguments;
+  -moz-transform: $arguments;
+  -o-transform: $arguments;
+  -ms-transform: $arguments;
+  transform: $arguments;
+}
+
+// Borders rounded
+@mixin rounded($radius: 2px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Disable user selection
+@mixin user-select($argument: none) {
+  -webkit-user-select: $argument;
+  -moz-user-select: $argument;
+  -ms-user-select: $argument;
+  user-select: $argument;
+}
+
+// Fade elements
+@mixin opacity($opacity: 0.5) {
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  -webkit-opacity: $opacity;
+  opacity: $opacity;
+  $opperc: $opacity * 100;
+  filter: "alpha(opacity=$opperc)"; //IE8
+}
+
+@mixin centered-y($y: -50%) {
+  top: 50%;
+  -webkit-transform: translateY($y);
+  -ms-transform: translateY($y);
+  transform: translateY($y);
+}
+
+@mixin centered-x($x: -50%) {
+  left: 50%;
+  -webkit-transform: translateX($x);
+  -ms-transform: translateX($x);
+  transform: translateX($x);
+}
+
+@mixin centered-xy($x: -50%, $y: -50%) {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
+@mixin aspect-ratio($width: 16, $height: 9, $landscape: true ) {
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  
+  > .inner-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    img {
+      position: absolute;
+      @include centered-xy;
+      
+      @if ($landscape == true) {    
+        width: 100%;
+      } @else {
+        width: auto;
+        height: 100%;
+      }
+      
+    }  
+  }
+}

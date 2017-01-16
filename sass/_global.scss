@@ -1,0 +1,253 @@
+/**************************************************************************************************
+ *
+ *  @Section: Global
+ *
+***************************************************************************************************/
+html { font-size: 62.5%; }
+
+body {
+	font-family: $font-default;
+  color: $default-text;
+	@include font-size(1.5);
+}
+
+.desktop { display: none; }
+
+.mobile { display: block; }
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: $link-text;
+  @include transition;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: $link-text-hover;
+
+    .thumb { outline: 1px solid $link-text-hover; }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-heading;
+  font-weight: 400;
+}
+
+h1 { @include font-size(2.4); }
+h2 { @include font-size(2); }
+h3 { @include font-size(1.8); }
+h4 { @include font-size(1.6); }
+h5 { @include font-size(1.4); }
+
+p { margin: 0 0 10px; }
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  &.alignleft,
+  &.alignright,
+  &.aligncenter {
+    width: auto;
+    display:inline-block;
+  }
+
+  &.alignleft { 
+    float: left;
+    margin-right: 20px;
+  }
+  &.alignright { 
+    float: right;
+    margin-left: 20px;
+  }
+
+  &.aligncenter {
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+hr { border-top: 1px solid rgba($border-gray, 0.25); }
+
+.content-area {
+  margin-top: 60px;
+  min-height: 500px;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 { margin: 20px 0 10px; }
+}
+
+.btn {
+  margin-bottom: 10px;
+  padding: 0px 15px 0px 15px;
+  color: $white;
+  background-color: $gray;
+  -webkit-box-shadow: 0 .25em 0 0 $dark-gray;
+  -moz-box-shadow: 0 .25em 0 0 $dark-gray;
+  box-shadow: 0 .25em 0 0 $dark-gray;
+  font-family: $font-heading;
+  @include transition;
+  @include font-size(1.8);
+
+  &:after {
+    content: '\f105';
+    font-family: 'FontAwesome';
+    margin-left: 10px;
+    @include font-size(2.5);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $white;
+    background-color: $dark-gray;
+  }
+
+  &.gray {
+    color: $white;
+    background-color: $gray;
+    -webkit-box-shadow: 0 .25em 0 0 $dark-gray;
+    -moz-box-shadow: 0 .25em 0 0 $dark-gray;
+    box-shadow: 0 .25em 0 0 $dark-gray;
+     
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $light-gray;
+      -webkit-box-shadow: 0 .25em 0 0 $gray;
+      -moz-box-shadow: 0 .25em 0 0 $gray;
+      box-shadow: 0 .25em 0 0 $gray;
+    }
+  }
+}
+
+.module {
+  position: relative;
+  display: block;
+  padding: 50px 0; 
+  margin: 0;
+
+  h2 { margin-bottom: 20px; }
+
+  .description {
+
+    &.centered {
+      padding-top: 150px;
+      text-align: center; 
+    }
+  }
+
+  &.gray { background-color: $light-gray; }
+}
+
+.module-default,
+.module-single {
+
+  h2,
+  h3 { color: $default-text; }
+
+  h2 {
+    text-transform: uppercase;
+  }
+
+  h3 {
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    list-style: disc;
+  }
+}
+
+.thumb {
+  outline: 1px solid $border-gray;
+  border: 2px solid $white;
+  margin: 5px 0;
+  width: 100%;
+  height: auto;
+}
+
+.thumb-container {
+  @extend .thumb;
+  @include aspect-ratio(4,3,false);
+}
+
+#wpadminbar { 
+  top: auto;
+  bottom: 0;
+}
+
+.error-404 {
+  margin-top: 200px;
+  text-align: center;
+}
+
+.acf-map {
+  width: 100%;
+  height: 35vw;
+  min-height: 400px;
+}
+
+/* fixes potential theme css conflict */
+.acf-map img {
+   max-width: inherit !important;
+}
+
+/* Google map transparent overlay link */
+.map-overlay {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 10;
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+  .container { width: 100%; }
+}
+
+@media only screen and (min-width: $breakpoint) {
+
+  body { @include font-size(1.6); }
+
+
+  h1 { @include font-size(2.8); }
+  h2 { @include font-size(2.4); }
+  h3 { @include font-size(2.2); }
+  h4 { @include font-size(2); }
+  h5 { @include font-size(1.8); }
+
+  .desktop { display: block; }
+
+  .mobile { display: none; }
+
+}
+
+@media only screen and (min-width: $desktop) {
+
+  body { @include font-size(1.8); }
+
+
+  h1 { @include font-size(3.8); }
+  h2 { @include font-size(3); }
+  h3 { @include font-size(2.8); }
+  h4 { @include font-size(2.2); }
+  h5 { @include font-size(2); }
+}

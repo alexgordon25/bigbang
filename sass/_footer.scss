@@ -1,0 +1,23 @@
+/**************************************************************************************************
+ *
+ *  @Section: Footer
+ *
+***************************************************************************************************/
+footer {
+	padding-top: 20px;
+	min-height: 60px;
+	color: $white;
+	background-color: $dark-gray;
+
+	#scroll-top {
+		position: relative;
+		margin-top: -10px;
+		float: right;
+		color: $white;
+		@include font-size(2.5);
+
+		&:hover,
+		&:focus,
+		&:active { @include opacity(0.5); }
+	}
+}

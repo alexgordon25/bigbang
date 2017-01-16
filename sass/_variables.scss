@@ -1,0 +1,27 @@
+//## Variables.
+
+// Main colors.
+$white:							#FFFFFF;
+$black:							#000000;
+$gray:							#494748;
+$light-gray:					#ececec;
+$dark-gray:						#262325;
+$border-gray:					#d8d8d8;
+
+// Default text.
+$default-text:                  #555555;
+$link-text:                     #3366ff;
+$link-text-hover:               #0033cc;
+
+// Media query breakpoints.
+$default-width:					80%;
+$default-min-width:				728px;
+$breakpoint:					992px;
+$tablet-landscape:				1024px;
+$tablet-portrait:				768px;
+$mobile:						480px;
+$desktop:						1200px;
+
+// Fonts.
+$font-default: 					'Open Sans', sans-serif;
+$font-heading: 					'Oswald', sans-serif;

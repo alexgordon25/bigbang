@@ -1,0 +1,43 @@
+/*
+Theme Name: bigbang
+Theme URI: https://github.com/alexgordon25/bigbang
+Author: Daniel Gordon
+Author URI: http://gordonwebstudio.com
+Description: A wordpress starter theme for developers.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bigbang
+*/
+
+//## Imports.
+
+// Global.
+@import "variables";
+@import "mixins";
+@import "reset";
+@import "normalize";
+@import "global";
+@import "header";
+@import "footer";
+@import "forms";
+
+// Fonts.
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+// Templates/Modules.
+// @import "./modules/module-hero";
+// @import "./modules/module-blog";
+// @import "./modules/module-videoform";
+// @import "./modules/module-newsletter";
+
+// Templates/Components.
+// @import "./components/component-carousel";
+
+// Templates/Pages.
+// @import "./pages/homepage";
+
+// Templates/Single Pages.
+// @import "./pages/single";
+ 
