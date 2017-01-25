@@ -7,37 +7,41 @@
  * @package bigbang
  */
 
-if( function_exists('acf_add_local_field_group') ):
+if ( function_exists('acf_add_local_field_group') ) :
+
+	if ( $module_hero ) 		{ $post_layouts[] = $module_hero; }
+	if ( $module_slideshow ) 	{ $post_layouts[] = $module_slideshow; }
+	if ( $module_newsletter ) 	{ $post_layouts[] = $module_newsletter; }
 
 acf_add_local_field_group(array(
-	'key' => 'group_5772784598257',
-	'title' => 'Page Modules',
+	'key' => 'group_588759704a82b',
+	'title' => 'post-modules',
 	'fields' => array(
 		array(
-			'key' => 'field_57727865a0415',
+			'layouts' => $post_layouts,
+			'min' => '',
+			'max' => '',
+			'button_label' => 'Add Module',
+			'key' => 'field_58875982e0740',
 			'label' => 'modules',
 			'name' => 'modules',
 			'type' => 'flexible_content',
 			'instructions' => '',
-			'required' => 1,
+			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
 				'id' => '',
 			),
-			'button_label' => 'Agregar módulo',
-			'min' => '',
-			'max' => '',
-			'layouts' => array(),
 		),
 	),
 	'location' => array(
 		array(
 			array(
-				'param' => 'page_template',
+				'param' => 'post_type',
 				'operator' => '==',
-				'value' => 'page.php',
+				'value' => 'post',
 			),
 		),
 	),
@@ -48,6 +52,8 @@ acf_add_local_field_group(array(
 	'instruction_placement' => 'label',
 	'hide_on_screen' => array(
 		0 => 'the_content',
+		1 => 'format',
+		2 => 'featured_image',
 	),
 	'active' => 1,
 	'description' => '',
