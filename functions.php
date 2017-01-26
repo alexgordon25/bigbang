@@ -255,3 +255,25 @@ require get_template_directory() . '/plugins/fields/post-modules.php';
 // 	acf_update_setting('google_api_key', 'xxxxxxx');
 // }
 // add_action('acf/init', 'my_acf_init');
+
+/**
+ * Forcing single column layout for all Custom Post Types including Page and Post.
+ */
+function get_custom_post_types() {
+	$args = array(
+		'public' => true,
+		'_builtin' => false
+	);
+	$post_types = get_post_types( $args, 'names');
+	// Comment the next 2 lines to exclude Page and Post.
+	$post_types['page'] = 'page';
+	$post_types['post'] = 'post';
+
+	foreach ( $post_types as $post_type ) {
+		$get_user_option_screen_layout = 'get_user_option_screen_layout_' . $post_type;
+		add_filter( $get_user_option_screen_layout, function () {
+		    return 1;
+		});
+	}
+}
+add_action('wp_loaded', 'get_custom_post_types');
