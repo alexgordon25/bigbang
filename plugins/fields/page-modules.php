@@ -7,37 +7,42 @@
  * @package bigbang
  */
 
-if( function_exists('acf_add_local_field_group') ):
+if ( function_exists('acf_add_local_field_group') ) :
+
+	if ( $module_hero ) 		{ $page_layouts[] = $module_hero; }
+	if ( $module_slideshow ) 	{ $page_layouts[] = $module_slideshow; }
+	if ( $module_grid ) 		{ $page_layouts[] = $module_grid; }
+	if ( $module_newsletter ) 	{ $page_layouts[] = $module_newsletter; }
 
 acf_add_local_field_group(array(
-	'key' => 'group_5772784598257',
-	'title' => 'Page Modules',
+	'key' => 'group_page_modules',
+	'title' => 'page-modules',
 	'fields' => array(
 		array(
-			'key' => 'field_57727865a0415',
+			'layouts' => $page_layouts,
+			'min' => '',
+			'max' => '',
+			'button_label' => 'Add Module',
+			'key' => 'page_modules_field_modules',
 			'label' => 'modules',
 			'name' => 'modules',
 			'type' => 'flexible_content',
 			'instructions' => '',
-			'required' => 1,
+			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
 				'id' => '',
 			),
-			'button_label' => 'Agregar módulo',
-			'min' => '',
-			'max' => '',
-			'layouts' => array(),
 		),
 	),
 	'location' => array(
 		array(
 			array(
-				'param' => 'page_template',
+				'param' => 'post_type',
 				'operator' => '==',
-				'value' => 'page.php',
+				'value' => 'page',
 			),
 		),
 	),
@@ -48,6 +53,8 @@ acf_add_local_field_group(array(
 	'instruction_placement' => 'label',
 	'hide_on_screen' => array(
 		0 => 'the_content',
+		1 => 'format',
+		2 => 'featured_image',
 	),
 	'active' => 1,
 	'description' => '',

@@ -19,9 +19,12 @@ var sassDest = './';
 var fileSrc = './**/*.php';
 var jsSrc = './js/**/*.js';
 
+// Host
+var hosturl = "bigbang.dev"
+
 gulp.task('browser-sync', function() {
   browserSync.init({
-    proxy: "holiday.dev"
+    proxy: hosturl
   });
   gulp.watch([sassSrc, watchSass], ['sass', 'cssmin']); 
   gulp.watch([fileSrc, jsSrc]).on('change', browserSync.reload);
