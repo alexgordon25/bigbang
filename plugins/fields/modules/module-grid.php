@@ -10,13 +10,13 @@
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
-		'key' => 'group_588782e96f81e',
+		'key' => 'group_module_grid',
 		'title' => 'module-grid',
 		'fields' => array(
 			array(
 				'placement' => 'top',
 				'endpoint' => 0,
-				'key' => 'field_5888db30c6d01',
+				'key' => 'module_grid_field_tab_options',
 				'label' => 'Options',
 				'name' => '',
 				'type' => 'tab',
@@ -37,7 +37,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_588784bfa3a09',
+				'key' => 'module_grid_field_grid_options',
 				'label' => 'Grid Options',
 				'name' => 'grid_options',
 				'type' => 'clone',
@@ -58,7 +58,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_5888db38c6d02',
+				'key' => 'module_grid_field_more',
 				'label' => 'More',
 				'name' => 'more',
 				'type' => 'clone',
@@ -92,20 +92,20 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 	$module_grid = array(
-		'key' => '5887ad0524744',
+		'key' => 'layout_grid_module',
 		'name' => 'grid_module',
 		'label' => 'Grid',
 		'display' => 'block',
 		'sub_fields' => array(
 			array(
 				'clone' => array(
-					0 => 'group_588782e96f81e',
+					0 => 'group_module_grid',
 				),
 				'prefix_label' => 0,
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_5887ad1124745',
+				'key' => 'layout_grid_module_field_grid',
 				'label' => 'Grid',
 				'name' => 'grid',
 				'type' => 'clone',

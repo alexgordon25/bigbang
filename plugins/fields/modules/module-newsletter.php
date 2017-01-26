@@ -10,13 +10,13 @@
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
-		'key' => 'group_5888cc7596f11',
+		'key' => 'group_module_newsletter',
 		'title' => 'module-newsletter',
 		'fields' => array(
 			array(
 				'placement' => 'top',
 				'endpoint' => 0,
-				'key' => 'field_5888dacc4b7d2',
+				'key' => 'module_newsletter_field_tab_options',
 				'label' => 'Options',
 				'name' => '',
 				'type' => 'tab',
@@ -37,7 +37,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_5888cd697821d',
+				'key' => 'module_newsletter_field_newsletter',
 				'label' => 'newsletter',
 				'name' => 'newsletter',
 				'type' => 'clone',
@@ -58,7 +58,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_5888dad84b7d3',
+				'key' => 'module_newsletter_field_more',
 				'label' => 'More',
 				'name' => 'more',
 				'type' => 'clone',
@@ -92,20 +92,20 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 	$module_newsletter = array(
-		'key' => '5888ce8bc06d7',
+		'key' => 'layout_newsletter_module',
 		'name' => 'newsletter_module',
 		'label' => 'Newsletter',
 		'display' => 'block',
 		'sub_fields' => array(
 			array(
 				'clone' => array(
-					0 => 'group_5888cc7596f11',
+					0 => 'group_module_newsletter',
 				),
 				'prefix_label' => 0,
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_5888ce97c06d8',
+				'key' => 'layout_newsletter_module_field_newsletter',
 				'label' => 'Newsletter',
 				'name' => 'newsletter',
 				'type' => 'clone',

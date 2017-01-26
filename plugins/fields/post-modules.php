@@ -14,7 +14,7 @@ if ( function_exists('acf_add_local_field_group') ) :
 	if ( $module_newsletter ) 	{ $post_layouts[] = $module_newsletter; }
 
 acf_add_local_field_group(array(
-	'key' => 'group_588759704a82b',
+	'key' => 'group_post_modules',
 	'title' => 'post-modules',
 	'fields' => array(
 		array(
@@ -22,7 +22,7 @@ acf_add_local_field_group(array(
 			'min' => '',
 			'max' => '',
 			'button_label' => 'Add Module',
-			'key' => 'field_58875982e0740',
+			'key' => 'post_modules_field_modules',
 			'label' => 'modules',
 			'name' => 'modules',
 			'type' => 'flexible_content',

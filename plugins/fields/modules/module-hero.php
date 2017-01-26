@@ -10,13 +10,13 @@
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
-		'key' => 'group_58875d4f9e8bb',
+		'key' => 'group_module_hero',
 		'title' => 'module-hero',
 		'fields' => array(
 			array(
 				'placement' => 'top',
 				'endpoint' => 0,
-				'key' => 'field_5888d4c44cb9b',
+				'key' => 'module_hero_field_tab_options',
 				'label' => 'Options',
 				'name' => '',
 				'type' => 'tab',
@@ -42,7 +42,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_588775af732e8',
+				'key' => 'module_hero_field_hero_options',
 				'label' => 'Hero Options',
 				'name' => 'hero_options',
 				'type' => 'clone',
@@ -63,7 +63,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_5888d38cca3d6',
+				'key' => 'module_hero_field_more',
 				'label' => 'More',
 				'name' => 'more',
 				'type' => 'clone',
@@ -97,20 +97,20 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 	$module_hero = array(
-		'key' => '5887599cccd0e',
+		'key' => 'layout_hero_module',
 		'name' => 'hero_module',
 		'label' => 'Hero',
 		'display' => 'block',
 		'sub_fields' => array(
 			array(
 				'clone' => array(
-					0 => 'group_58875d4f9e8bb',
+					0 => 'group_module_hero',
 				),
 				'prefix_label' => 0,
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_58875b97e073a',
+				'key' => 'layout_hero_module_field_hero',
 				'label' => 'Hero',
 				'name' => 'hero',
 				'type' => 'clone',

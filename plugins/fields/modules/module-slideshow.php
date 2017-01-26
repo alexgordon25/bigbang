@@ -10,13 +10,13 @@
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
-		'key' => 'group_58876fb4d32eb',
+		'key' => 'group_module_slideshow',
 		'title' => 'module-slideshow',
 		'fields' => array(
 			array(
 				'placement' => 'top',
 				'endpoint' => 0,
-				'key' => 'field_5888d50ce94e3',
+				'key' => 'module_slideshow_field_tab_options',
 				'label' => 'Options',
 				'name' => '',
 				'type' => 'tab',
@@ -37,7 +37,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_5887840ff021b',
+				'key' => 'module_slideshow_field_slideshow_options',
 				'label' => 'Slideshow Options',
 				'name' => 'slideshow_options',
 				'type' => 'clone',
@@ -66,7 +66,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'ajax' => 0,
 						'placeholder' => '',
 						'return_format' => 'value',
-						'key' => 'field_588772015afdf',
+						'key' => 'module_slideshow_field_slide_type',
 						'label' => 'Slide Type',
 						'name' => 'slide_type',
 						'type' => 'select',
@@ -88,7 +88,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'prefix_name' => 0,
 						'display' => 'group',
 						'layout' => 'block',
-						'key' => 'field_5887789bcc1c6',
+						'key' => 'module_slideshow_field_default_slide',
 						'label' => 'Default Slide',
 						'name' => 'default_slide',
 						'type' => 'clone',
@@ -97,7 +97,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'conditional_logic' => array(
 							array(
 								array(
-									'field' => 'field_588772015afdf',
+									'field' => 'module_slideshow_field_slide_type',
 									'operator' => '==',
 									'value' => 'default',
 								),
@@ -118,7 +118,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'multiple' => 0,
 						'return_format' => 'object',
 						'ui' => 1,
-						'key' => 'field_58877918cc1c7',
+						'key' => 'module_slideshow_field_custom_slide',
 						'label' => 'Custom Slide',
 						'name' => 'custom_slide',
 						'type' => 'post_object',
@@ -127,7 +127,7 @@ if( function_exists('acf_add_local_field_group') ):
 						'conditional_logic' => array(
 							array(
 								array(
-									'field' => 'field_588772015afdf',
+									'field' => 'module_slideshow_field_slide_type',
 									'operator' => '==',
 									'value' => 'custom',
 								),
@@ -145,7 +145,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'layout' => 'block',
 				'button_label' => 'Add Slide',
 				'collapsed' => '',
-				'key' => 'field_58876fc05afde',
+				'key' => 'module_slideshow_field_slides',
 				'label' => 'Slides',
 				'name' => 'slides',
 				'type' => 'repeater',
@@ -166,7 +166,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_5888d51de94e4',
+				'key' => 'module_slideshow_field_more',
 				'label' => 'More',
 				'name' => 'more',
 				'type' => 'clone',
@@ -200,20 +200,20 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 	
 	$module_slideshow = array(
-		'key' => '588777ecef1a1',
+		'key' => 'layout_slideshow_module',
 		'name' => 'slideshow_module',
 		'label' => 'Slideshow',
 		'display' => 'block',
 		'sub_fields' => array(
 			array(
 				'clone' => array(
-					0 => 'group_58876fb4d32eb',
+					0 => 'group_module_slideshow',
 				),
 				'prefix_label' => 0,
 				'prefix_name' => 0,
 				'display' => 'seamless',
 				'layout' => 'block',
-				'key' => 'field_588777f9ef1a2',
+				'key' => 'layout_slideshow_module_field_slideshow',
 				'label' => 'Slideshow',
 				'name' => 'slideshow',
 				'type' => 'clone',
