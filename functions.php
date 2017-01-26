@@ -215,8 +215,8 @@ require get_template_directory() . '/plugins/fields/modules/module-newsletter.ph
 /**
  * Custom Fields - Layouts.
  */
-// require get_template_directory() . '/plugins/fields/page-modules.php';
-// require get_template_directory() . '/plugins/fields/post-modules.php';
+require get_template_directory() . '/plugins/fields/page-modules.php';
+require get_template_directory() . '/plugins/fields/post-modules.php';
 
 /**
  * Adding Option pages from ACF-PRO.
