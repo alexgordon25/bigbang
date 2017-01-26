@@ -269,11 +269,26 @@ function get_custom_post_types() {
 	$post_types['page'] = 'page';
 	$post_types['post'] = 'post';
 
+	function set_single_column() {
+		return 1;
+	}
+
 	foreach ( $post_types as $post_type ) {
 		$get_user_option_screen_layout = 'get_user_option_screen_layout_' . $post_type;
-		add_filter( $get_user_option_screen_layout, function () {
-		    return 1;
-		});
+
+		add_filter( $get_user_option_screen_layout, 'set_single_column');
 	}
 }
 add_action('wp_loaded', 'get_custom_post_types');
+
+function fix_acf_fc_popup_css() {
+  	echo '<style>
+			/* acf_fc_popup */
+			a[data-event="add-layout"].acf-button.button-primary {
+				min-width: 200px;
+			    margin-right: 12px !important;
+			    text-align: center;
+			}
+		</style>';
+}
+add_action('admin_head', 'fix_acf_fc_popup_css');
