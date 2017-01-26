@@ -196,9 +196,30 @@ function bigbang_main_nav() {
 // require get_template_directory() . '/plugins/taxonomies/custom-taxonomy.php';
 
 /**
- * Custom Fields.
+ * Custom Fields - Components.
  */
-// require get_template_directory() . '/plugins/fields/modules-fields.php';
+require get_template_directory() . '/plugins/fields/components/component-common-fields.php';
+require get_template_directory() . '/plugins/fields/components/component-heading.php';
+require get_template_directory() . '/plugins/fields/components/component-button.php';
+require get_template_directory() . '/plugins/fields/components/component-carousel-options.php';
+require get_template_directory() . '/plugins/fields/components/component-grid-options.php';
+require get_template_directory() . '/plugins/fields/components/component-newsletter.php';
+require get_template_directory() . '/plugins/fields/components/component-slide.php';
+
+
+/**
+ * Custom Fields - Modules.
+ */
+require get_template_directory() . '/plugins/fields/modules/module-hero.php';
+require get_template_directory() . '/plugins/fields/modules/module-slideshow.php';
+require get_template_directory() . '/plugins/fields/modules/module-grid.php';
+require get_template_directory() . '/plugins/fields/modules/module-newsletter.php';
+
+/**
+ * Custom Fields - Layouts.
+ */
+require get_template_directory() . '/plugins/fields/page-modules.php';
+require get_template_directory() . '/plugins/fields/post-modules.php';
 
 /**
  * Adding Option pages from ACF-PRO.
