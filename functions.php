@@ -25,3 +25,35 @@ require_once( get_template_directory() . '/functions/misc.php' );
 
 // Enable multiple languages.
 require_once( get_template_directory() . '/functions/languages.php' );
+
+// Helpers.
+// require get_template_directory() . '/plugins/helpers/pagination.php';
+
+// Custom Post Types.
+// require get_template_directory() . '/plugins/post-types/custom-post-type.php';
+
+// Custom Taxonomies.
+// require get_template_directory() . '/plugins/taxonomies/custom-taxonomy.php';
+
+// Custom Fields - Components.
+require get_template_directory() . '/plugins/fields/components/component-common-fields.php';
+require get_template_directory() . '/plugins/fields/components/component-heading.php';
+require get_template_directory() . '/plugins/fields/components/component-button.php';
+require get_template_directory() . '/plugins/fields/components/component-carousel-options.php';
+require get_template_directory() . '/plugins/fields/components/component-grid-options.php';
+require get_template_directory() . '/plugins/fields/components/component-newsletter.php';
+require get_template_directory() . '/plugins/fields/components/component-slide.php';
+
+
+// Custom Fields - Modules.
+require get_template_directory() . '/plugins/fields/modules/module-hero.php';
+require get_template_directory() . '/plugins/fields/modules/module-slideshow.php';
+require get_template_directory() . '/plugins/fields/modules/module-grid.php';
+require get_template_directory() . '/plugins/fields/modules/module-newsletter.php';
+
+// Custom Fields - Layouts.
+require get_template_directory() . '/plugins/fields/page-modules.php';
+// require get_template_directory() . '/plugins/fields/post-modules.php';
+
+// Temporally file.
+require_once( get_template_directory() . '/functions.bak.php' );
