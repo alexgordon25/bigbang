@@ -75,7 +75,7 @@ acf_add_local_field_group(array(
 			'allow_null' => 0,
 			'multiple' => 0,
 			'allow_archives' => 1,
-			'key' => 'component_button_field_page_link',
+			'key' => 'component_button_field_button_internal_url',
 			'label' => 'Button URL',
 			'name' => 'button_internal_url',
 			'type' => 'page_link',
