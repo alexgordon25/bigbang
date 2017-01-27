@@ -5,6 +5,9 @@
  * @package bigbang
  */
 
+$custom_id = get_sub_field( 'custom_id' );
+$custom_class = get_sub_field( 'custom_class' );
+
 if ( get_sub_field( 'headline' ) ) {
 	$headline = get_sub_field( 'headline' );
 } else {
@@ -21,7 +24,9 @@ if ( $link_type === 'internal' ) {
 	$link = get_sub_field( 'button_external_url' );
 }
 ?>
-<section class="module module-hero">
+
+<section class="module module-hero <?php echo esc_attr( $custom_class ); ?>" 
+	id="<?php echo esc_attr( $custom_id ); ?>">
 	<?php if ( $link ) : ?>
 		<a href="<?php echo esc_url( $link ); ?>" title="<?php echo esc_attr( $headline ); ?>">
 	<?php endif; ?>
