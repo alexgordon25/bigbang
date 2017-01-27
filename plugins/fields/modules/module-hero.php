@@ -35,7 +35,7 @@ if( function_exists('acf_add_local_field_group') ):
 					1 => 'component_slide_field_headline',
 					2 => 'component_slide_field_image',
 					3 => 'component_button_field_button_type',
-					4 => 'component_button_field_page_link',
+					4 => 'component_button_field_button_internal_url',
 					5 => 'component_button_field_button_external_url',
 				),
 				'prefix_label' => 0,

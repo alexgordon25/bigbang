@@ -63,46 +63,7 @@ function bigbang_main_nav() {
 	);
 }
 
-/**
- * Helpers.
- */
-// require get_template_directory() . '/plugins/helpers/pagination.php';
 
-/**
- * Custom Post Types.
- */
-// require get_template_directory() . '/plugins/post-types/custom-post-type.php';
-
-/**
- * Custom Taxonomies.
- */
-// require get_template_directory() . '/plugins/taxonomies/custom-taxonomy.php';
-
-/**
- * Custom Fields - Components.
- */
-require get_template_directory() . '/plugins/fields/components/component-common-fields.php';
-require get_template_directory() . '/plugins/fields/components/component-heading.php';
-require get_template_directory() . '/plugins/fields/components/component-button.php';
-require get_template_directory() . '/plugins/fields/components/component-carousel-options.php';
-require get_template_directory() . '/plugins/fields/components/component-grid-options.php';
-require get_template_directory() . '/plugins/fields/components/component-newsletter.php';
-require get_template_directory() . '/plugins/fields/components/component-slide.php';
-
-
-/**
- * Custom Fields - Modules.
- */
-require get_template_directory() . '/plugins/fields/modules/module-hero.php';
-require get_template_directory() . '/plugins/fields/modules/module-slideshow.php';
-require get_template_directory() . '/plugins/fields/modules/module-grid.php';
-require get_template_directory() . '/plugins/fields/modules/module-newsletter.php';
-
-/**
- * Custom Fields - Layouts.
- */
-require get_template_directory() . '/plugins/fields/page-modules.php';
-require get_template_directory() . '/plugins/fields/post-modules.php';
 
 /**
  * Adding Option pages from ACF-PRO.
@@ -143,7 +104,7 @@ require get_template_directory() . '/plugins/fields/post-modules.php';
 // add_action('acf/init', 'my_acf_init');
 
 /**
- * Forcing single column layout for all Custom Post Types including Page and Post.
+ * Forcing single column layout.
  */
 function get_custom_post_types() {
 	$args = array(
@@ -174,6 +135,13 @@ function fix_acf_fc_popup_css() {
 				min-width: 200px;
 			    margin-right: 12px !important;
 			    text-align: center;
+			}
+
+			input[type="submit"]#publish {
+				background: #33cc33;
+				border-color: #009900 #009900 #009900;
+			    box-shadow: 0 1px 0 #009900;
+		        text-shadow: 0 -1px 1px #009900, 1px 0 1px #009900, 0 1px 1px #009900, -1px 0 1px #009900;
 			}
 		</style>';
 }
