@@ -17,5 +17,11 @@ require_once( get_template_directory() . '/functions/theme-setup.php' );
 // WP Head and other cleanup functions.
 require_once( get_template_directory() . '/functions/cleanup.php' );
 
+// Enqueue scripts and styles.
+require_once( get_template_directory() . '/functions/scripts-styles.php' );
+
+// Miscellaneous functions.
+require_once( get_template_directory() . '/functions/misc.php' );
+
 // Enable multiple languages.
 require_once( get_template_directory() . '/functions/languages.php' );
