@@ -17,6 +17,7 @@ acf_add_local_field_group(array(
 			'multiple' => 0,
 			'allow_null' => 0,
 			'choices' => array(
+				'disable' => 'Disable',
 				'h1' => '< h1 >',
 				'h2' => '- < h2 >',
 				'h3' => '-- < h3 >',
@@ -32,7 +33,7 @@ acf_add_local_field_group(array(
 			'label' => 'Headline Tag',
 			'name' => 'headline_tag',
 			'type' => 'select',
-			'instructions' => 'Select Headline Tag Level',
+			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -51,9 +52,17 @@ acf_add_local_field_group(array(
 			'label' => 'Headline',
 			'name' => 'headline',
 			'type' => 'text',
-			'instructions' => 'Leave blank if you want to load page title.',
+			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'component_slide_field_headline_tag',
+						'operator' => '!=',
+						'value' => 'disable',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '75',
 				'class' => '',
@@ -94,7 +103,7 @@ acf_add_local_field_group(array(
 			'label' => 'Background Image',
 			'name' => 'image',
 			'type' => 'image',
-			'instructions' => 'Select Background Image',
+			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(

@@ -1,6 +1,6 @@
 <?php
 /**
- * Module/Layout template - Newsletter.
+ * Module/Layout template - Grid
  *
  * @package bigbang
  */
@@ -10,7 +10,7 @@ $custom_id = get_sub_field( 'custom_id' );
 $custom_class = get_sub_field( 'custom_class' );
 ?>
 
-<section class="module module-newsletter <?php echo esc_attr( $custom_class ); ?>" 
+<section class="module module-grid <?php echo esc_attr( $custom_class ); ?>" 
 	id="<?php echo esc_attr( $custom_id ); ?>">
 
 	<div class="container">
