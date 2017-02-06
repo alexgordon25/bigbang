@@ -1,21 +1,26 @@
 <?php
 /**
- * Module/Layout template.
+ * Module/Layout template - Hero.
  *
  * @package bigbang
  */
 
+// Common Fields.
 $custom_id = get_sub_field( 'custom_id' );
 $custom_class = get_sub_field( 'custom_class' );
+
+// Hero Fields.
+$tag = get_sub_field( 'headline_tag' );
+if ( is_front_page() === true ) {
+	$tag = ( $tag === 'h1' ) ? 'h2' : $tag;
+}
+$image = get_sub_field( 'image' );
 
 if ( get_sub_field( 'headline' ) ) {
 	$headline = get_sub_field( 'headline' );
 } else {
 	$headline = get_the_title();
 }
-
-$tag = get_sub_field( 'headline_tag' );
-$image = get_sub_field( 'image' );
 
 $link_type = get_sub_field( 'button_type' );
 if ( $link_type === 'internal' ) {
