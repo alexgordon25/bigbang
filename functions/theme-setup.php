@@ -50,6 +50,11 @@ if ( ! function_exists( 'bigbang_setup' ) ) :
 		}
 		add_filter('image_size_names_choose', 'custom_image_sizes');
 
+		// Register Menu locations.
+		register_nav_menus( array(
+			'main' => esc_html__( 'Main Menu', 'bigbang' ),
+		) );
+
 		// Add RSS support links to head.
 		add_theme_support( 'automatic-feed-links' );
 		

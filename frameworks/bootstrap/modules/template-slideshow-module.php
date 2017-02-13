@@ -70,56 +70,8 @@ if ( have_rows('slides') ):
 			<?php
 			// loop through the rows of data
 			while ( have_rows('slides') ) : the_row(); 
-
-				// Slides Fields
-				$slide_type = get_sub_field( 'slide_type' );
-
-				if ( $slide_type  === 'default' ) {
-
-					$tag = get_sub_field( 'headline_tag' );
-					// Is front-page you should use h2 only. SEO purpose.
-					if ( is_front_page() === true ) {
-						$tag = ( $tag === 'h1' ) ? 'h2' : $tag;
-					}
-
-					if ( get_sub_field( 'headline' ) ) {
-						$headline = get_sub_field( 'headline' );
-					} else {
-						$headline = get_the_title();
-					}
-
-					$image = get_sub_field( 'image' );
-
-					$link_type = get_sub_field( 'button_type' );
-					if ( $link_type === 'internal' ) {
-						$link = get_sub_field( 'button_internal_url' );
-					} elseif ( $link_type === 'external' ) {
-						$link = get_sub_field( 'button_external_url' );
-					}
-				} elseif ( $slide_type === 'custom' ) {
-					
-				}
-			?>
-
-				<div class="item" data-lazy="<?php echo esc_url( $image['sizes']['custom-full'] ); ?>" style="background-image:url(<?php echo esc_url( $image['sizes']['custom-full'] ); ?>);">
-					
-					<?php if ( $tag !== 'disable' ) : ?>
-
-						<div class="container">
-							<div class="description">
-								<?php echo wp_kses_post('<' . $tag . '>' . $headline . '</' . $tag . '>' );  ?>
-							</div>
-						</div>
-
-					<?php endif; ?>
-
-					<?php if ( $link ) : ?>
-						<a class="btn"> href="<?php echo esc_url( $link ); ?>" title="<?php echo esc_attr( $headline ); ?>">More Info</a>
-					<?php endif; ?>
-					
-				</div>
-
-			<?php endwhile; ?>
+				include( locate_template( $GLOBALS['framework_path'] . '/partials/card-slide.php' ) );
+			endwhile; ?>
 
 		</div>
 

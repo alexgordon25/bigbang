@@ -27,7 +27,7 @@ get_header(); ?>
 
 				foreach ($layout_names as $layout_name){
 					if ( get_row_layout() == $layout_name ) {
-						$module_path = locate_template( 'modules/template-' . str_replace('_', '-', $layout_name) . '.php' );
+						$module_path = locate_template( $GLOBALS['framework_path'] . '/modules/template-' . str_replace('_', '-', $layout_name) . '.php' );
 						if ( !empty( $module_path ) ) {
 					    	include( $module_path );
 					    }
@@ -46,7 +46,18 @@ get_header(); ?>
 		
 		<?php
 		endif;
-		?>
+
+		// Default WP Content Field.
+		wp_reset_postdata(); // Restore original Post Data from modules.
+		if ( !empty( get_the_content() ) ) { ?>
+
+		<section class="module module-default">
+			<div class="container">
+				<?php the_content(); ?>
+			</div>
+		</section>
+
+		<?php } ?>
 
 
 

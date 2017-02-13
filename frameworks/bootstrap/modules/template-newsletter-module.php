@@ -15,12 +15,12 @@ $custom_class = get_sub_field( 'custom_class' );
 
 	<div class="container">
 		
-		<div class="newsletter-info">
-			<?php the_sub_field( 'headline' ); ?>
+		<div class="newsletter-info col-sm-6">
+			<h2><?php the_sub_field( 'headline' ); ?></h2>
 			<?php the_sub_field( 'description' ); ?>
 		</div>
 		
-		<div class="newsletter-form">
+		<div class="newsletter-form col-sm-6">
 			<?php the_sub_field( 'form_embed' ); ?>
 		</div>
 

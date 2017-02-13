@@ -7,8 +7,12 @@
 
 function bigbang_scripts() {
 
-	// Register main stylesheet.
-    wp_enqueue_style( 'site-css', get_template_directory_uri() . 'style.css', array(), '', 'all' );
+	global $framework;
+
+	if ( $framework === 'bootstrap' ) {
+		// Register bootstrap css.
+		wp_enqueue_style('bootstrap-css', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), '3.3.7', 'all');
+	}
 
 	// Register fontawesome.
 	wp_enqueue_style(' fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', array(), '4.5.0', 'all' );
@@ -16,22 +20,22 @@ function bigbang_scripts() {
 	// Register carousel slick css.
 	wp_enqueue_style('carousel-css', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css', array(), '1.6.0', 'all');
 
-	if ( $GLOBALS['pagenow'] != 'wp-login.php' && !is_admin() ) {
-		
-		// Deregister WP jQuery and use the CDN version instead.
-		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', 'http://code.jquery.com/jquery-2.1.4.min.js', array(), '2.1.4', '' );
-		wp_enqueue_script( 'jquery' );
+	// Register main stylesheet.
+    wp_enqueue_style( 'site-css', get_template_directory_uri() . 'style.css', array(), '', 'all' );
 
-		// Add Modernizr.
-		wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/lib/modernizr.min.js', array(), '2.8.3', false );
+    if ( $framework === 'bootstrap' ) {
+		// Register bootstrap js.
+		wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), '3.3.5', true );
+	}
 
-		// Register carousel slick  script.
-		wp_enqueue_script( 'carousel-js', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array('jquery'), '1.6.0', true );
+	// Add Modernizr.
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/lib/modernizr.min.js', array(), '2.8.3', false );
 
-		// Add scripts file in the footer.
-		wp_enqueue_script( 'bigbang-js', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0.0', true );
-	}		
+	// Register carousel slick script.
+	wp_enqueue_script( 'carousel-js', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array('jquery'), '1.6.0', true );
+
+	// Add scripts file in the footer.
+	wp_enqueue_script( 'bigbang-js', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0.0', true );
 
 	// Comment reply script for threaded comments
 	if ( is_singular() AND comments_open() AND ( get_option( 'thread_comments' ) == 1 ) ) {
