@@ -37,7 +37,7 @@ acf_add_local_field_group(array(
 			'new_lines' => 'wpautop',
 			'maxlength' => '',
 			'placeholder' => '',
-			'rows' => 5,
+			'rows' => 2,
 			'key' => 'component_newsletter_field_description',
 			'label' => 'Description',
 			'name' => 'description',

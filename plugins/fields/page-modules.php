@@ -11,6 +11,7 @@ if ( function_exists('acf_add_local_field_group') ) :
 
 	if ( $module_hero ) 		{ $page_layouts[] = $module_hero; }
 	if ( $module_slideshow ) 	{ $page_layouts[] = $module_slideshow; }
+	if ( $module_heading ) 		{ $page_layouts[] = $module_heading; }
 	if ( $module_grid ) 		{ $page_layouts[] = $module_grid; }
 	if ( $module_newsletter ) 	{ $page_layouts[] = $module_newsletter; }
 

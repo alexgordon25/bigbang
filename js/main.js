@@ -5,16 +5,14 @@
 		// Get real window width
 		function getWindowWidth() {
 			var windowWidth = 0;
-			if (typeof(window.innerWidth) == 'number') {
-				windowWidth = window.innerWidth;
-			}
-			else {
-				if (document.documentElement && document.documentElement.clientWidth) {
-					windowWidth = document.documentElement.clientWidth;
-				}
-				else {
-					if (document.body && document.body.clientWidth) {
-						windowWidth = document.body.clientWidth;
+			if ( jQuery.type( $(window).innerWidth() ) === 'number' ) {
+				windowWidth = $(window).innerWidth();
+			} else {
+				if ( $(document) && $(document).width()) {
+					windowWidth = $(document).width();
+				} else {
+					if ( $(document.body) && $(document.body).width() ) {
+						windowWidth = $(document.body).width();
 					}
 				}
 			}

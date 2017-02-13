@@ -24,7 +24,7 @@ function bigbang_cleanup() {
 	add_filter( 'gallery_style', 'bigbang_gallery_style' );
 	
 	// Adding sidebars to Wordpress.
-	add_action( 'widgets_init', 'joints_register_sidebars' );
+	//add_action( 'widgets_init', 'joints_register_sidebars' );
 	
 	// Cleaning up the excerpt.
 	add_filter( 'excerpt_more', 'bigbang_excerpt_more' );

@@ -29,6 +29,5 @@
 <![endif]-->
 
 <header>
-
+	<?php include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) ); ?>
 </header>
-

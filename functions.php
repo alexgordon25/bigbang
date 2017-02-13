@@ -11,8 +11,24 @@
  * @package bigbang
  */
 
+/**
+ * Set a framework/framework_directory to work on this theme.
+ *
+ * Options: clean, bootstrap, foundation
+ */
+$GLOBALS['framework'] = 'bootstrap';
+$GLOBALS['framework_path'] = 'frameworks/' . $GLOBALS['framework'];
+
+// Framework functions.
+if ( $GLOBALS['framework'] === 'bootstrap' ) {
+	require_once(  get_template_directory() . '/' . $GLOBALS['framework_path'] . '/functions.php');
+}
+
 // Theme setup.
 require_once( get_template_directory() . '/functions/theme-setup.php' );
+
+// Register widget area.
+require_once( get_template_directory() . '/functions/widgets.php' );
 
 // WP Head and other cleanup functions.
 require_once( get_template_directory() . '/functions/cleanup.php' );
@@ -44,16 +60,13 @@ require get_template_directory() . '/plugins/fields/components/component-grid-op
 require get_template_directory() . '/plugins/fields/components/component-newsletter.php';
 require get_template_directory() . '/plugins/fields/components/component-slide.php';
 
-
 // Custom Fields - Modules.
 require get_template_directory() . '/plugins/fields/modules/module-hero.php';
 require get_template_directory() . '/plugins/fields/modules/module-slideshow.php';
+require get_template_directory() . '/plugins/fields/modules/module-heading.php';
 require get_template_directory() . '/plugins/fields/modules/module-grid.php';
 require get_template_directory() . '/plugins/fields/modules/module-newsletter.php';
 
 // Custom Fields - Layouts.
 require get_template_directory() . '/plugins/fields/page-modules.php';
 // require get_template_directory() . '/plugins/fields/post-modules.php';
-
-// Temporally file.
-require_once( get_template_directory() . '/functions.bak.php' );
