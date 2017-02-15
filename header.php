@@ -30,17 +30,8 @@
 
 <header>
 	<?php
-		switch ( $GLOBALS['framework'] ) {
-			case 'bootstrap':
-				include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) );
-				break;
-
-			case 'foundation':
-				include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) );
-				break;
-
-			default:
-				break;
+		if ( $GLOBALS['framework'] !== 'clean' ) {
+			include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) );
 		}
 	?>
 </header>
