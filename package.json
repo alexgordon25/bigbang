@@ -1,20 +1,40 @@
 {
   "name": "bigbang",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Wordpress boilerplate theme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexgordon25/bigbang.git"
+  },
+  "keywords": [
+    "Wordpress",
+    "boilerplate",
+    "Bootstrap",
+    "Foundation"
+  ],
+  "author": "Alex Gordon, Dax Castellon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexgordon25/bigbang/issues"
+  },
+  "homepage": "https://github.com/alexgordon25/bigbang#readme",
   "devDependencies": {
-    "browser-sync": "^2.18.7",
-    "ngrok": "^2.2.6",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "^2.6.0",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-livereload": "^3.8.1",
-    "gulp-minify-css": "^1.2.2",
-    "gulp-newer": "^1.1.0",
+    "gulp-newer": "^1.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.4.2",
-    "gulp-watch": "^4.3.5",
-    "run-sequence": "^1.1.5"
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-watch": "^4.3.11",
+    "ngrok": "^2.2.6",
+    "run-sequence": "^1.2.2"
   }
 }
