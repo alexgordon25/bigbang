@@ -29,5 +29,18 @@
 <![endif]-->
 
 <header>
-	<?php include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) ); ?>
+	<?php
+		switch ( $GLOBALS['framework'] ) {
+			case 'bootstrap':
+				include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) );
+				break;
+
+			case 'foundation':
+				include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) );
+				break;
+
+			default:
+				break;
+		}
+	?>
 </header>

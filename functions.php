@@ -16,7 +16,7 @@
  *
  * Options: clean, bootstrap, foundation
  */
-$GLOBALS['framework'] = 'bootstrap';
+$GLOBALS['framework'] = 'clean';
 $GLOBALS['framework_path'] = 'frameworks/' . $GLOBALS['framework'];
 
 // Framework functions.
