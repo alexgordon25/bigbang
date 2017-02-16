@@ -8,7 +8,7 @@ var newer = require('gulp-newer');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
-var cssmin = require('gulp-minify-css');
+var cssmin = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var runSequence = require('run-sequence');
@@ -24,7 +24,7 @@ var jsSrc = './js/**/*.js';
 var hostName = 'bigbang';
 
 gulp.task('browser-sync', function() {
-	browserSync.init({ 
+	browserSync.init({
 			proxy: hostName + '.dev',
 			socket: { domain: hostName + '.ngrok.io:80' }
 		},
@@ -35,7 +35,7 @@ gulp.task('browser-sync', function() {
 				}, function (err, url) {})
 			}
 	);
-	gulp.watch([sassSrc, watchSass], ['sass', 'cssmin']); 
+	gulp.watch([sassSrc, watchSass], ['sass', 'cssmin']);
 	gulp.watch([fileSrc, jsSrc]).on('change', browserSync.reload);
 });
 

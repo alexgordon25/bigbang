@@ -29,5 +29,9 @@
 <![endif]-->
 
 <header>
-	<?php include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) ); ?>
+	<?php
+		if ( $GLOBALS['framework'] !== 'clean' ) {
+			include( locate_template( $GLOBALS['framework_path'] . '/header.php' ) );
+		}
+	?>
 </header>
