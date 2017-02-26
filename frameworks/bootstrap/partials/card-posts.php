@@ -6,10 +6,10 @@
  */
 
 ?>
-<div class="item col-sm-6 <?php echo esc_attr( ' grid-' . $grid_layout); ?>">
+<div class="item col-sm-6 <?php echo esc_attr( ' grid-' . $grid_layout . '-' . $posts_dynamic ); ?>">
 	
 	<a class="item-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-		
+
 		<?php
 		if ( has_post_thumbnail() ) { 
 			$grid_image_id = get_post_thumbnail_id();

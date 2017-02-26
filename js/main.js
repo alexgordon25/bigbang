@@ -40,6 +40,16 @@
 	        }, 500);
 		});
 
+		// On windows resize.
+		$(window).bind('resize orientationchange', function() {
+			is_Mobile = isMobile();
+			if ( is_Mobile === true ) {
+				// Do something.
+			} else {
+				// Do something.
+			}
+		});
+
 	});
 
 })(jQuery);

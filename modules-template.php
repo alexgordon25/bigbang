@@ -59,8 +59,6 @@ get_header(); ?>
 
 		<?php } ?>
 
-
-
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
