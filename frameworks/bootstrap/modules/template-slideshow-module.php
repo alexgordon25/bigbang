@@ -72,7 +72,7 @@ if ( have_rows('slides') ):
 
 			<?php
 			// loop through the rows of data
-			while ( have_rows('slides') ) : the_row(); 
+			while ( have_rows( 'slides' ) ) : the_row(); 
 				include( locate_template( $GLOBALS['framework_path'] . '/partials/card-slide.php' ) );
 			endwhile; ?>
 
@@ -87,8 +87,8 @@ if ( have_rows('slides') ):
 			?>
 
 			<script type="text/javascript">
-			(function($) {
-				$(document).ready(function($) {
+			(function( $ ) {
+				$(document).ready(function( $ ) {
 					var $slideshow = $('<?php echo $slideshow_id; ?> .slides');
 					var	parallax = <?php echo $parallax; ?>;
 					$slideshow.slick();

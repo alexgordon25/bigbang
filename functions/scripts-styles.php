@@ -57,7 +57,7 @@ function bigbang_scripts() {
 	  wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'bigbang_scripts' );
+add_action( 'wp_enqueue_scripts', 'bigbang_scripts', 999 );
 
 /** 
  * Functions to render blocking javascript in WP. 
@@ -69,4 +69,5 @@ add_action( 'wp_enqueue_scripts', 'bigbang_scripts' );
 function js_async_attr($tag){
 	return str_replace( ' src', ' async="async" src', $tag );
 }
+// this is breaking jquery
 //add_filter( 'script_loader_tag', 'js_async_attr', 10 );
