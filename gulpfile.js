@@ -23,9 +23,12 @@ var jsSrc = './js/**/*.js';
 // more
 var hostName = 'bigbang';
 
+// Change the `hostUrl` to your local dev server ("new-site.dev" or "localhost").
+var hostUrl = hostName + '.dev'; 
+
 gulp.task('browser-sync', function() {
 	browserSync.init({
-			proxy: hostName + '.dev',
+			proxy: hostUrl,
 			socket: { domain: hostName + '.ngrok.io:80' }
 		},
 		function (err, bs) {
