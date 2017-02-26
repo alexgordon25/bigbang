@@ -21,7 +21,7 @@ function bigbang_scripts() {
 	wp_enqueue_style('carousel-css', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css', array(), '1.6.0', 'all');
 
 	// Register main stylesheet.
-    wp_enqueue_style( 'site-css', get_template_directory_uri() . 'style.css', array(), '', 'all' );
+	wp_enqueue_style( 'bigbang-css', get_stylesheet_uri() );
 
     if ( $framework === 'bootstrap' ) {
 		// Register bootstrap js.
@@ -57,7 +57,7 @@ function bigbang_scripts() {
 	  wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'bigbang_scripts', 999 );
+add_action( 'wp_enqueue_scripts', 'bigbang_scripts' );
 
 /** 
  * Functions to render blocking javascript in WP. 
@@ -69,4 +69,4 @@ add_action( 'wp_enqueue_scripts', 'bigbang_scripts', 999 );
 function js_async_attr($tag){
 	return str_replace( ' src', ' async="async" src', $tag );
 }
-add_filter( 'script_loader_tag', 'js_async_attr', 10 );
+//add_filter( 'script_loader_tag', 'js_async_attr', 10 );
