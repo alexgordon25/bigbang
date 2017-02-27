@@ -10,18 +10,27 @@
 
 	<div class="topbar">
 		<div class="container">
-			<ul class="social-icons list-inline">
-				<li>
-					<a href="https://www.facebook.com/" target="_blank">
-						<i class="fa fa-facebook"></i>
-					</a>
-				</li>
-				<li>
-					<a href="https://twitter.com/" target="_blank">
-						<i class="fa fa-twitter"></i>
-					</a>
-				</li>
-			</ul>
+			<?php
+			if ( get_field( 'social_icons', 'options' ) ) : ?>
+
+	    		<ul class="social-icons list-inline">	
+
+					<?php
+				    while ( have_rows('social_icons', 'options') ) : the_row(); ?>
+
+				    <li>
+				    	<a href="<?php the_sub_field( 'url' ); ?>" title="<?php the_sub_field( 'title' ); ?>" target="_blank">
+				    		<i class="<?php the_sub_field( 'class' ); ?>"></i>
+				    		<span class="social-text"><?php the_sub_field( 'title' ); ?></span>
+				    	</a>
+			    	</li>
+
+				    <?php endwhile; ?>
+
+			    </ul>
+
+			<?php 
+			endif; ?>
 		</div>
 	</div>
 
@@ -38,11 +47,29 @@
 				</button>
 				<div class="logo-wrapper">
 					<a href="<?php echo home_url(); ?>">
-						<?php if ( is_front_page() === true ) { ?>
-							<h1><img alt="<?php bloginfo('name'); ?>" class="logo" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo.png" /></h1>
-						<?php } else { ?>
-							<img alt="<?php bloginfo('name'); ?>" class="logo" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo.png" />
-						<?php } ?>
+						<?php
+						$logo_desktop = get_field( 'logo_desktop', 'options' );
+						$logo_mobile = get_field( 'logo_mobile', 'options' );
+						$logo_retina = get_field( 'logo_retina', 'options' );
+						if ( $logo_retina ) {
+							$logo_url = $logo_retina;
+						} elseif ( $logo_retina ) {
+							$logo_url = $logo_desktop;
+						} else {
+							$logo_url = get_template_directory_uri() . '/img/logo.png';
+						}
+						?>
+
+						<?php if ( is_front_page() === true ) { echo '<h1>'; } ?>
+
+							<img alt="<?php bloginfo( 'name' ); ?>" class="logo <?php if( $logo_mobile && empty( $logo_retina ) ) { echo esc_attr( 'desktop' ); } ?>" src="<?php echo esc_url( $logo_url ); ?>" />
+
+							<?php 
+							if ( $logo_mobile && empty( $logo_retina ) ) { ?>
+							<img alt="<?php bloginfo( 'name' ); ?>" class="logo mobile" src="<?php echo esc_url( $logo_mobile ); ?>" />
+							<?php } ?>
+
+						<?php if ( is_front_page() === true ) { echo '</h1>'; } ?>
 					</a>
 				</div>
 			</div>

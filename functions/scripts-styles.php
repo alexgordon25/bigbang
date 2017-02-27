@@ -21,7 +21,7 @@ function bigbang_scripts() {
 	wp_enqueue_style('carousel-css', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css', array(), '1.6.0', 'all');
 
 	// Register main stylesheet.
-    wp_enqueue_style( 'site-css', get_template_directory_uri() . 'style.css', array(), '', 'all' );
+	wp_enqueue_style( 'bigbang-css', get_stylesheet_uri() );
 
     if ( $framework === 'bootstrap' ) {
 		// Register bootstrap js.
@@ -33,6 +33,21 @@ function bigbang_scripts() {
 
 	// Register carousel slick script.
 	wp_enqueue_script( 'carousel-js', '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js', array('jquery'), '1.6.0', true );
+
+	// Register scrollmagic scripts.
+	wp_enqueue_script( 'parallax-tweenmax-js', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', array('jquery'), '2.0.5', true );
+
+	wp_enqueue_script( 'parallax-js', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array('jquery'), '2.0.5', true );
+
+	wp_enqueue_script( 'parallax-gsap-js', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js', array('jquery'), '2.0.5', true );
+
+	// wp_enqueue_script( 'parallax-debug-js', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', array('jquery'), '2.0.5', true );
+
+	// Add jquery.matchHeight plugin.
+	wp_enqueue_script( 'match-height-js', '//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js', array('jquery'), '0.7.0', true );
+
+	// Add google map api key script.
+	wp_enqueue_script( 'googlemap-js', '//maps.googleapis.com/maps/api/js?key=YOURAPIKEY', array(), '1.0.0', true );
 
 	// Add scripts file in the footer.
 	wp_enqueue_script( 'bigbang-js', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0.0', true );
@@ -54,4 +69,5 @@ add_action( 'wp_enqueue_scripts', 'bigbang_scripts', 999 );
 function js_async_attr($tag){
 	return str_replace( ' src', ' async="async" src', $tag );
 }
-add_filter( 'script_loader_tag', 'js_async_attr', 10 );
+// this is breaking jquery
+//add_filter( 'script_loader_tag', 'js_async_attr', 10 );

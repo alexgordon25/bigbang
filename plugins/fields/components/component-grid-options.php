@@ -252,7 +252,9 @@ acf_add_local_field_group(array(
 				1 => 'post_type',
 				2 => 'taxonomy',
 			),
-			'elements' => '',
+			'elements' => array(
+				0 => 'featured_image',
+			),
 			'return_format' => 'object',
 			'key' => 'component_grid_options_field_posts_manual',
 			'label' => 'Posts',

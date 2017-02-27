@@ -70,3 +70,10 @@ require get_template_directory() . '/plugins/fields/modules/module-newsletter.ph
 // Custom Fields - Layouts.
 require get_template_directory() . '/plugins/fields/page-modules.php';
 // require get_template_directory() . '/plugins/fields/post-modules.php';
+
+// Custom Fields - Theme Options Fields.
+require get_template_directory() . '/plugins/fields/theme-options/theme-options-header.php';
+require get_template_directory() . '/plugins/fields/theme-options/theme-options-social-icons.php';
+require get_template_directory() . '/plugins/fields/theme-options/theme-options-contact-us.php';
+require get_template_directory() . '/plugins/fields/theme-options/theme-options-footer.php';
+require get_template_directory() . '/plugins/fields/theme-options.php';

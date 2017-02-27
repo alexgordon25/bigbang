@@ -37,6 +37,7 @@
 			if ( !empty( $terms ) ) { ?>
 			<span class="terms"><?php echo esc_html( implode(', ', array_slice($terms, 0, 2) ) ); ?></span>
 			<?php } ?>
+
 			<h4><?php the_title(); ?></h4>
 		</div>
 	</a>

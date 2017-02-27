@@ -22,6 +22,7 @@ $desktop_arrows = var_export( get_sub_field( 'desktop_arrows' ), true );
 $desktop_loop = var_export( get_sub_field( 'desktop_loop' ), true );
 $desktop_dots = var_export( get_sub_field( 'desktop_dots' ), true );
 $desktop_fade = var_export( get_sub_field( 'desktop_fade' ), true );
+$parallax = var_export( get_sub_field( 'parallax' ), true );
 $responsive = get_sub_field( 'responsive' );
 if ( $responsive ) {
 	$responsive_breakpoint = get_sub_field( 'responsive_breakpoint' );
@@ -51,6 +52,8 @@ if ( have_rows('slides') ):
 			"easing": "<?php echo esc_attr( $desktop_easing ); ?>",
 			"lazyLoad": "<?php echo esc_attr( $desktop_lazyload ); ?>",
 			"prevArrow": "<?php echo esc_attr( $desktop_prevarrow ); ?>",
+			"useCss": false,
+			"useTransform": false,
 			"nextArrow": "<?php echo esc_attr( $desktop_nextarrow ); ?>"
 			<?php if ( $responsive ) : ?>
 			,"responsive": [
@@ -69,27 +72,41 @@ if ( have_rows('slides') ):
 
 			<?php
 			// loop through the rows of data
-			while ( have_rows('slides') ) : the_row(); 
+			while ( have_rows( 'slides' ) ) : the_row(); 
 				include( locate_template( $GLOBALS['framework_path'] . '/partials/card-slide.php' ) );
 			endwhile; ?>
 
 		</div>
 
 	</section>
+
 	<?php
-	$slideshow_id = ($custom_id) ? '#' . $custom_id : '.module-slideshow';
-	add_action( 'wp_footer', function() use ( $slideshow_id ) {
+	$slideshow_id = ( $custom_id ) ? '#' . $custom_id : '.module-slideshow';
+	add_action( 'wp_footer', function() use ( $slideshow_id, $parallax ) {
 		if ( wp_script_is( 'carousel-js', 'done' ) ) {
 			?>
 
-<script type="text/javascript">
-(function($) {
-	$(document).ready(function($) {
-		var $slideshow = $('<?php echo $slideshow_id; ?> .slides');
-		$slideshow.slick();
-	});
-})(jQuery);
-</script>
+			<script type="text/javascript">
+			(function( $ ) {
+				$(document).ready(function( $ ) {
+					var $slideshow = $('<?php echo $slideshow_id; ?> .slides');
+					var	parallax = <?php echo $parallax; ?>;
+					$slideshow.slick();
+					if ( parallax === true ) {
+						// init controller
+						var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "100%"}});
+
+						// build scenes
+						$( '.parallax-parent' ).each(function() {
+							new ScrollMagic.Scene({triggerElement: $(this)})
+								.setTween($(this).children('.item-image'), {y: "80%", ease: Linear.easeNone})
+								//.addIndicators()
+								.addTo(controller);
+						});
+					}
+				});
+			})(jQuery);
+			</script>
 
 		<?php
 		}

@@ -94,9 +94,9 @@ add_filter('show_admin_bar', '__return_false');
  */
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
-		'page_title'    => 'Theme Settings',
-		'menu_title'    => 'Theme Settings',
-		'menu_slug'     => 'theme-settings',
+		'page_title'    => __( 'Theme Options', 'bigbang' ),
+		'menu_title'    => __( 'Theme Options', 'bigbang' ),
+		'menu_slug'     => 'theme-options',
 		'capability'    => 'edit_posts',
 		'redirect'      => false
 	));
@@ -147,6 +147,6 @@ function remove_menu_items() {
  * Adding google map api key.
  */
 function my_acf_init() {	
-	acf_update_setting('google_api_key', 'xxxxxxx');
+	acf_update_setting('google_api_key', 'YOURAPIKEY');
 }
 // add_action('acf/init', 'my_acf_init');

@@ -35,7 +35,11 @@ if ( $slide_type  === 'default' ) {
 }
 ?>
 
-<div class="item" data-lazy="<?php echo esc_url( $image['sizes']['custom-full'] ); ?>" style="background-image:url(<?php echo esc_url( $image['sizes']['custom-full'] ); ?>);">
+<div class="item">
+
+	<div class="parallax-parent">
+		<div class="item-image" style="background-image:url(<?php echo esc_url( $image['sizes']['custom-full'] ); ?>);"></div>
+	</div>
 	
 	<?php if ( $tag !== 'disable' ) { ?>
 
