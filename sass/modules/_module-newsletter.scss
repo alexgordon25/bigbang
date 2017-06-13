@@ -1,0 +1,100 @@
+/**************************************************************************************************
+ *
+ *  @Section: Module - Newsletter
+ *
+***************************************************************************************************/
+.module.module-newsletter {
+	padding: 150px 0;
+	color: $white;
+	background-color: $dark-main-color;
+
+	.newsletter-info,
+	.newsletter-form {
+		position: relative;
+		display: block;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		min-height: 100px; 
+	}
+
+	.newsletter-info {
+		
+		h2 {
+			margin-top: 0;
+			color: $second-color;
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+	}
+
+	.newsletter-form {
+
+		#mc_embed_signup {
+			position: absolute;
+			width: 100%;
+			@include centered-y;
+
+			form {
+
+				.mc-field-group {
+					display: inline-block;
+					width: 100%;
+					padding-right: 150px;
+
+					label {
+						display: block;
+						@include font-size(1.4);
+					}
+
+					input[type="email"] { @extend %text-field; }
+				}
+
+				input[type="submit"] {
+					@extend .btn;
+					position: absolute;
+					top: 0;
+					right: 15px;
+
+					&.focus {
+						color: $white;
+						background-color: $light-second-color;
+					}
+				}
+
+			}	
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module.module-newsletter {
+
+		.newsletter-info,
+		.newsletter-form { min-height: auto; }
+
+
+		.newsletter-form {
+
+			#mc_embed_signup {
+				position: relative;
+				@include transform(none);
+
+				form {
+
+					.mc-field-group { 
+						padding-right: 0;
+						margin-bottom: 15px;
+					}
+
+					input[type="submit"] {
+						position: static;
+						display: block;
+						width: 100%;
+					}
+
+				}	
+			}
+		}
+	}
+}

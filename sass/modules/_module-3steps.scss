@@ -1,0 +1,56 @@
+/**************************************************************************************************
+ *
+ *  @Section: Module - 3steps
+ *
+***************************************************************************************************/
+.module.module-3steps {
+	padding: 0;
+
+	.steps-container {
+		padding: 50px 0;
+		color: $white;
+		background-color: $second-color;
+
+		.steps {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: top;
+
+			.step {
+				padding: 25px;
+
+				h3 {
+					@include font-size(1.8);
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module.module-3steps {
+
+		.container {
+			padding-right: 15px;
+		}
+
+		.steps-container {
+
+			.steps { flex-direction: column;
+
+				.step {
+					text-align: center;
+					position: relative; 
+					@include centered-x;
+
+					img {
+						max-width: 300px;
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+	}
+}

@@ -3,25 +3,35 @@
  *  @Section: Module - Slideshow
  *
 ***************************************************************************************************/
-.module-slideshow {
+.module.module-slideshow {
 	padding: 0;
 
-	.slides { display: block;
+	.card-heading {
+		margin: 20px auto;
 
-		.item {
-			width: 100%;
-			height: 35vw;
-			min-height: 400px;
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: cover;
+		.headline { padding-bottom: 0;
+			
+			&:before,
+			&:after { display: none; }
 		}
+	}
 
+	.card-slide {
+		cursor: pointer;
+		cursor: hand;
+		cursor: -webkit-grab;
+		cursor: grab;
+	}
+
+	.slides {
+		display: block;
+		background-color: $black;
+		z-index: 1010;
 
 		.slick-arrow {
 			position: absolute;
 			margin: 0;
-	    	height: 100%;
+			height: 100%;
 			border: none;
 			color: $white;
 			background: transparent;
@@ -32,53 +42,146 @@
 
 			&.slick-prev {
 				left: 0;
-				padding: 0 10vw 0 25px;
+				padding: 0 5vw 0 15px;
 			}
 
 			&.slick-next {
 				right: 0;
-				padding: 0 25px 0 10vw;
+				padding: 0 15px 0 5vw;
 			}
 
 			&:hover {
-				color: $light-gray;
-				background-color: rgba($white, 0.1);
+				color: $second-color;
 				@include opacity(1);
 
 				&.slick-prev {
-					background: -moz-linear-gradient(left,  rgba($black, 0.1) 0%, rgba($black, 0) 100%);
-					background: -webkit-linear-gradient(left,  rgba($black, 0.1) 0%,rgba($black, 0) 100%);
-					background: linear-gradient(to right,  rgba($black, 0.1) 0%,rgba($black, 0) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a000000', endColorstr='#00000000',GradientType=1 );
+					background: -moz-linear-gradient(
+						left,
+						rgba($black, 0.1) 0%,
+						rgba($black, 0) 100%
+					);
+					background: -webkit-linear-gradient(
+						left,
+						rgba($black, 0.1) 0%,
+						rgba($black, 0) 100%
+					);
+					background: linear-gradient(
+						to right,  
+						rgba($black, 0.1) 0%,
+						rgba($black, 0) 100%
+					);
+					filter: progid:DXImageTransform.Microsoft.gradient( 
+						startColorstr='#1a000000',
+						endColorstr='#00000000',
+						GradientType=1
+					);
 				}
 
 				&.slick-next {
-					background: -moz-linear-gradient(left,  rgba($black, 0) 0%, rgba($black, 0.1) 100%);
-					background: -webkit-linear-gradient(left,  rgba($black, 0) 0%,rgba($black, 0.1) 100%);
-					background: linear-gradient(to right,  rgba($black, 0) 0%,rgba($black, 0.1) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#1a000000',GradientType=1 );
+					background: -moz-linear-gradient(
+						left, 
+						rgba($black, 0) 0%, 
+						rgba($black, 0.1) 100%
+					);
+					background: -webkit-linear-gradient(
+						left, 
+						rgba($black, 0) 0%,
+						rgba($black, 0.1) 100%
+					);
+					background: linear-gradient(
+						to right, 
+						rgba($black, 0) 0%,
+						rgba($black, 0.1) 100%
+					);
+					filter: progid:DXImageTransform.Microsoft.gradient(
+						startColorstr='#00000000',
+						endColorstr='#1a000000',
+						GradientType=1
+					);
 				}
 			}
 		}
 
 		.slick-dots {
 			position: absolute;
-			bottom: 15px;
-			right: 15px;
+			top: 30px;
+			right: 25px;
+			z-index: 1020;
 
-			.li {
+			li {
+				display: inline-block;
 
 				button {
-					width: 15px;
-					height: 15px;
+					display: block;
+					width: 20px;
+					height: 20px;
+					margin: 5px 7px;
+					background-color: $main-color;
+				    -webkit-backface-visibility: visible;
+    				transition: opacity 200ms ease;
+    				border: none;
+    				text-indent: -9999px;
+					white-space: nowrap;
+					overflow: hidden;
+    				@include rounded(20px);
+    				@include box-shadow;
 				}
 
 				&.slick-active button { 
-					background-color: $gray;
-					width: 30px;
+					background-color: $second-color;
+					width: 40px;
 				}
 
-				&:hover button { background-color: $light-gray; }
+				&:hover button { background-color: $second-color; }
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module.module-slideshow {
+
+		.slides {
+
+			.slick-arrow { height: 20%;
+
+				&:hover { 
+
+					&.slick-next,
+					&.slick-prev { background: none; }
+				}
+			}
+
+			.slick-dots {
+				top: 10px;
+				right: 10px;
+
+				li { display: inline-block;
+
+					button {
+						display: block;
+						width: 10px;
+						height: 10px;
+						margin: 5px 7px;
+						background-color: $main-color;
+					    -webkit-backface-visibility: visible;
+	    				transition: opacity 200ms ease;
+	    				border: none;
+	    				text-indent: -9999px;
+						white-space: nowrap;
+						overflow: hidden;
+	    				@include rounded(20px);
+	    				@include box-shadow;
+					}
+
+					&.slick-active button { 
+						background-color: $second-color;
+						width: 20px;
+					}
+
+					&:hover button { background-color: $second-color; }
+				}
 			}
 		}
 	}

@@ -1,0 +1,96 @@
+/**************************************************************************************************
+ *
+ *  @Section: Single - Service
+ *
+***************************************************************************************************/
+.module-service-detail {
+	padding: 100px 0;
+
+	.bkg-image-container {
+
+		.item-image {
+			background-image: url('img/map-background.png');
+			background-repeat: repeat-x;
+			background-size: contain;
+			background-position: center center;
+		}
+	}
+	
+	.service-sidebar {
+
+		ul.services-list { 
+			margin-bottom: 20px;
+			list-style: none;
+		    padding-left: 0;
+
+			li { position: relative;
+
+				a {
+					display: block;
+					padding: 20px 20px 20px 80px;
+					border-top: 1px solid lighten($gray, 60%);
+					border-bottom: 1px solid $white;
+					background-color: darken($light-gray, 5%);
+
+					&:before {
+						content: '';
+						position: absolute;
+						left: 0;
+						display: inline-block;
+						width: 4px;
+						height: 40px;
+						background-color: transparent;
+						@include centered-y;
+					}
+
+					.icon {
+						position: absolute;
+						left: 25px;
+						width: 30px;
+						@include centered-y;
+
+						* { fill: $second-color; }
+					}
+
+					span {
+						font-family: $font-heading;
+						text-transform: uppercase;
+						font-weight: 700;
+						color: $default-text;
+						@include font-size(1.4);
+					}
+
+					&:hover,
+					&:focus,
+					&:active,
+					&.active {
+						border-top: 1px solid $light-second-color;
+						border-bottom: 1px solid $dark-second-color;
+						background-color: darken($second-color, 5%);
+
+						&:before { background-color: $white; }
+
+						.icon {
+
+							* { fill: $white; }
+						}
+
+						span { color: white; }
+					}
+				}
+			}
+		}
+	}	
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module-service-detail {
+		padding: 50px 0;
+
+		.bkg-image-container {
+
+			.item-image { background-size: cover; }
+		}
+	}
+}

@@ -3,3 +3,61 @@
  *  @Section: Forms
  *
 ***************************************************************************************************/
+.content-area {
+	$field-height: 40px;
+
+	input:not([type='button']):not([type='submit']),
+	textarea {
+		padding: 12px;
+		height: $field-height;
+		color: $default-text;
+		background: $white;
+		border: 1px solid $border-gray;
+		@include box-shadow(none);
+		@include transition;
+	}
+
+	textarea {
+		max-height: 100px;
+	}
+
+	select {
+		position: relative;
+		height: $field-height;
+		padding: 12px;
+		border: 1px solid $border-gray;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: transparent;
+		z-index: 2;
+		@include transition;
+	}
+
+	select + div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block !important;
+		width: 100%;
+		height: 100%;
+		background-color: $white;
+
+		&:after {
+			content: '\f078';
+			font-family: 'FontAwesome';
+			font-size: 20px;
+			position: absolute;
+			right: 10px;
+			height: $field-height;
+			line-height: $field-height;
+		}
+	}
+
+	input[type="submit"],
+	input[type="button"] {
+		@extend .btn;
+	}
+
+	.nf-field-container { margin-bottom: 10px; }
+}

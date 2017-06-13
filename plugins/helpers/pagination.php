@@ -4,7 +4,7 @@
  *
  * @link http://www.wpbeginner.com/wp-themes/how-to-add-numeric-pagination-in-your-wordpress-theme/
  *
- * @package bingbang
+ * @package bigbang
  */
 
 function pagination_nav() {

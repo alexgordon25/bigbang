@@ -1,0 +1,89 @@
+/**************************************************************************************************
+ *
+ *  @Section: Module - Services
+ *
+***************************************************************************************************/
+.module.module-services {
+	padding: 0 0 100px;
+	background-color: $light-gray;
+
+	.feature-img { margin: 20vh auto 0; }
+
+	.bkg-image-container {
+
+		.item-image {
+			background-repeat: repeat-x;
+			background-size: contain;
+		}
+	}
+
+	.services-container {
+		margin-top: 100px;
+
+		ul {
+
+			li {
+				position: relative;
+				padding-left: 90px;
+				padding-right: 50px;
+				margin-bottom: 50px;
+
+				.icon {
+					position: absolute;
+					top: 30px;
+					left: 0;
+					width: 70px;
+				}
+
+				h3 {
+					text-transform: uppercase;
+					font-weight: 700;
+					@include font-size(1.8);
+				}
+			}
+		}
+	}
+
+	.heading-container + .services-container { margin-top: 0; }
+
+	.foreground { 
+
+		.services-container { margin-top: 50px;
+			
+			ul {
+
+				li { 
+					margin-bottom: 20px;
+					padding-right: 15px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module.module-services {
+
+		.feature-img { 
+			margin: 50px auto 0;
+			max-width: 300px;
+		}
+
+		.bkg-image-container {
+
+			.item-image {
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+		}
+
+		.services-container {
+			
+			ul {
+
+				li {  padding-right: 0; }
+			}
+		}
+	}
+}

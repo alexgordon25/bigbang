@@ -1,0 +1,195 @@
+/**************************************************************************************************
+ *
+ *  @Section: Module - Testimonials
+ *
+***************************************************************************************************/
+.module.module-testimonials {
+	color: $white;
+	background-color: $main-color;
+	background-image: url('img/map-background.png');
+	background-repeat: repeat-x;
+	background-size: contain;
+	background-position: center center;
+
+	.card-heading { text-align: center;
+
+		.headline {
+
+			span { color: $white; }
+
+			&:before,
+			&:after { @include centered-x; }
+
+			&:before { margin-left: -25px; }
+
+			&:after {
+				margin-left: 25px;
+				background-color: $dark-main-color;
+			}
+		}
+	}
+
+	.quotes-clients { margin-bottom: 50px;	}
+
+	.columns { @include clearfix; }
+
+	#quotes-slideshow {
+		margin-top: 20px;
+		border: 10px solid $light-main-color;
+
+		&:before {
+			position: absolute;
+			top: -30px;
+			padding: 0px 12px;
+			content: '\f10d';
+			font-family: 'FontAwesome';
+			display: inline-block;
+			background-color: $main-color;
+			@include font-size(4);
+		}
+	}
+
+	.quotes { padding: 50px 20px;
+
+		.quote {
+			cursor: pointer;
+			cursor: hand;
+			cursor: -webkit-grab;
+			cursor: grab;
+
+			.quote-text {
+				text-align: center;
+				font-style: italic;
+				@include font-size(2);
+			}
+
+			.quote-author {
+				position: relative;
+				display: inline-block;
+				text-align: center;
+				margin: 50px 0 10px;
+				@include centered-x;
+				
+				.avatar-container {
+					position: relative;
+					display: inline-block;
+					width: 80px;
+					height: 80px;
+					margin-bottom: 20px;
+					overflow: hidden;
+					@include rounded(50%);
+
+					.avatar {
+						position: absolute;
+						display: block;
+						@include centered-xy;
+					}
+				}
+			}
+		}
+
+		.slick-arrow {
+			position: absolute;
+			bottom: -25px;
+			right: 0;
+			padding: 7px 12px;
+			background-color: $main-color;
+			border: none;
+			@include font-size(2.5);
+
+		}
+
+		.slick-prev { margin-right: 30px; }
+	}
+
+	.clients {
+		margin-top: 10px;
+		$min-height: 130px;
+
+		.client {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			min-height: $min-height;
+
+			.logo-bkg {
+				position: relative;
+				height: 100%;
+				min-height: $min-height;
+				padding: 10px;
+				background-color: $light-gray;
+				@include transition;
+			}
+
+			.client-logo,
+			.client-text {
+				position:  absolute;
+				@include centered-xy;
+			}
+
+			.client-logo { width: 80%; }
+
+			.client-text {
+				position:  absolute;
+				text-align: center;
+				text-transform: uppercase;
+				font-family: $font-heading;
+				font-weight: 700;
+				color: $main-color;
+				font-size: 90%;
+				@include centered-xy;
+			}
+
+			a { 
+				position: relative;
+				display: block;
+				height: 100%;
+				@include clearfix;
+
+				&:hover,
+				&:focus,
+				&:active {
+
+					.client-text { color: $white; }
+					
+
+					.logo-bkg {
+						background-color: $second-color;
+						@include transform( scale(1.05) ); 
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module.module-testimonials {
+		
+		.clients {
+			margin-top: 50px;
+			
+			.client {
+				min-height: auto;
+
+				.logo-bkg { 
+					padding: 15px;
+					min-height: auto;
+				}
+
+				.client-logo,
+				.client-text { 
+					position: relative;
+					top: auto;
+					left: auto;
+					margin: 0 auto;
+					@include transform(none);
+				}
+
+				&:nth-child(n+5) {
+					display: none;
+				}
+			}
+		}
+	}
+}

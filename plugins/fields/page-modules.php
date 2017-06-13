@@ -9,11 +9,18 @@
 
 if ( function_exists('acf_add_local_field_group') ) :
 
-	if ( $module_hero ) 		{ $page_layouts[] = $module_hero; }
-	if ( $module_slideshow ) 	{ $page_layouts[] = $module_slideshow; }
-	if ( $module_heading ) 		{ $page_layouts[] = $module_heading; }
-	if ( $module_grid ) 		{ $page_layouts[] = $module_grid; }
-	if ( $module_newsletter ) 	{ $page_layouts[] = $module_newsletter; }
+if ( $module_hero ) 			{ $page_layouts[] = $module_hero; }
+if ( $module_slideshow ) 		{ $page_layouts[] = $module_slideshow; }
+if ( $module_heading ) 			{ $page_layouts[] = $module_heading; }
+if ( $module_grid ) 			{ $page_layouts[] = $module_grid; }
+if ( $module_newsletter ) 		{ $page_layouts[] = $module_newsletter; }
+if ( $module_form )		 		{ $page_layouts[] = $module_form; }
+if ( $module_3steps ) 			{ $page_layouts[] = $module_3steps; }
+if ( $module_services ) 		{ $page_layouts[] = $module_services; }
+if ( $module_testimonials )		{ $page_layouts[] = $module_testimonials; }
+if ( $module_blog )		 		{ $page_layouts[] = $module_blog; }
+if ( $module_content_boxes )	{ $page_layouts[] = $module_content_boxes; }
+if ( $module_feature_content )	{ $page_layouts[] = $module_feature_content; }
 
 acf_add_local_field_group(array(
 	'key' => 'group_page_modules',

@@ -1,0 +1,51 @@
+/**************************************************************************************************
+ *
+ *  @Section: Card - Posts
+ *
+***************************************************************************************************/
+.item {
+
+	&.card-post-post,
+	&.grid-post-post {
+		position: relative;
+		margin-bottom: 10px;
+		padding: 0;
+		overflow: hidden;
+
+		a.item-link {
+			width: 100%;
+
+			&:hover,
+			&:focus,
+			&:active { }	
+		}
+
+		.image-container {
+			margin: 0 10px;
+			@include aspect-ratio(16,9,true);
+			@include transition;
+		}
+
+		.description {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			text-transform: uppercase;
+			z-index: 1010;
+			
+
+			h4 { margin: 0; }
+
+			.terms {
+				color: $black;
+				font-weight: 700;
+				@include font-size(1.2);
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $breakpoint) {
+
+
+}

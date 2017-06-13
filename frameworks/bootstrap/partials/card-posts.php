@@ -11,16 +11,19 @@
 	<a class="item-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 
 		<?php
+
 		if ( has_post_thumbnail() ) { 
 			$grid_image_id = get_post_thumbnail_id();
 			$grid_image = wp_get_attachment_image_src($grid_image_id,'custom-medium', true); 
-			?>
-			<div class="image-container">
-				<div class="inner-content">
-					<img class="item-image" src="<?php echo $grid_image[0]; ?>" alt="<?php the_title(); ?>">
-				</div>
+			$grid_image = $grid_image[0];
+		} else {
+			$grid_image = get_template_directory_uri() . '/img/post-placeholder.jpg';
+		} ?>
+		<div class="image-container">
+			<div class="inner-content">
+				<img class="item-image" src="<?php echo esc_url( $grid_image ); ?>" alt="<?php the_title(); ?>">
 			</div>
-		<?php }	?>
+		</div>
 		
 		<div class="description">
 			<?php

@@ -4,23 +4,30 @@
 $white:							#FFFFFF;
 $black:							#000000;
 $gray:							#494748;
-$light-gray:					#ececec;
+$light-gray:					#fbfbfb;
 $dark-gray:						#262325;
 $border-gray:					#d8d8d8;
 
+// Custom colors.
+$main-color:					#434658;
+$light-main-color:				#5c6074;
+$dark-main-color:				#12121a;
+$second-color:					#69be9b;
+$light-second-color:			#aee2cc;
+$dark-second-color:				#3f9270;
+
 // Default text.
-$default-text:                  #555555;
-$link-text:                     #3366ff;
-$link-text-hover:               #0033cc;
+$default-text:                  #4a4a4a;
+$link-text:                     $light-second-color;
+$link-text-hover:               $dark-second-color;
 
 // Media query breakpoints.
-$default-width:					80%;
-$default-min-width:				728px;
 $breakpoint:					992px;
 $tablet-landscape:				1024px;
 $tablet-portrait:				768px;
 $mobile:						480px;
 $desktop:						1200px;
+$large-desktop:					1600px;
 
 // Fonts.
 $font-default: 					'Open Sans', sans-serif;

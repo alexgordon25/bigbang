@@ -5,16 +5,16 @@
  * @package bigbang
  */
 
-$footer_column = count( get_field( 'footer_content', 'options' ) );
+$footer_column = count( get_field( 'footer_columns', 'options' ) );
 
-if ( $footer_column === 1 ) {
-	$column_class = 'col-sm-12';
-} elseif ( $footer_column === 2 ) {
+if ( $footer_column === 2 ) {
 	$column_class = 'col-sm-6';
 } elseif ( $footer_column === 3 ) {
 	$column_class = 'col-sm-4';
 } elseif ( $footer_column === 4 ) {
 	$column_class = 'col-sm-6 col-md-3';
+} else {
+	$column_class = 'col-sm-12';
 }
 
 if( have_rows( 'footer_columns', 'options' ) ) : 
@@ -46,7 +46,7 @@ if( have_rows( 'footer_columns', 'options' ) ) :
 							if ( get_row_layout() == 'plain_content' ) {
 								?>
 								
-								<p><?php the_sub_field( 'description_about_us' ); ?></p>
+								<p><?php the_sub_field( 'short_description' ); ?></p>
 								
 							<?php
 							} elseif ( get_row_layout() == 'show_social_icons' ) {

@@ -15,6 +15,27 @@ body {
 
 .mobile { display: block; }
 
+%text-field {
+  display: inline-block;
+  width: 100%;
+  padding: 5px 10px;
+  outline: none;
+  text-decoration: none;
+  color: $second-color;
+  background-color: rgba($light-gray, 0.1);
+  border: none;
+  border-bottom: solid 2px $second-color;  
+  @include transition(all);
+  @include rounded();
+
+  &:focus,
+  &.focus {
+    color: $light-second-color;
+    background-color: rgba($light-gray, 0.075);
+    border-bottom: solid 2px $light-second-color;
+  }
+}
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -56,7 +77,8 @@ img {
 
   &.alignleft,
   &.alignright,
-  &.aligncenter {
+  &.aligncenter,
+  &.alignnone {
     width: auto;
     display:inline-block;
   }
@@ -65,6 +87,7 @@ img {
     float: left;
     margin-right: 20px;
   }
+
   &.alignright { 
     float: right;
     margin-left: 20px;
@@ -92,13 +115,12 @@ hr { border-top: 1px solid rgba($border-gray, 0.25); }
 
 .btn {
   margin-bottom: 10px;
-  padding: 0px 15px 0px 15px;
+  padding: 8px 25px;
   color: $white;
-  background-color: $gray;
-  -webkit-box-shadow: 0 .25em 0 0 $dark-gray;
-  -moz-box-shadow: 0 .25em 0 0 $dark-gray;
-  box-shadow: 0 .25em 0 0 $dark-gray;
+  background-color: $second-color;
   font-family: $font-heading;
+  text-transform: uppercase;
+  border: none;
   @include transition;
   @include font-size(1.8);
 
@@ -113,23 +135,18 @@ hr { border-top: 1px solid rgba($border-gray, 0.25); }
   &:focus,
   &:active {
     color: $white;
-    background-color: $dark-gray;
+    background-color: $main-color;
   }
 
   &.gray {
-    color: $white;
-    background-color: $gray;
-    -webkit-box-shadow: 0 .25em 0 0 $dark-gray;
-    -moz-box-shadow: 0 .25em 0 0 $dark-gray;
-    box-shadow: 0 .25em 0 0 $dark-gray;
+    color: $gray;
+    background-color: $light-gray;
      
     &:hover,
     &:focus,
     &:active {
-      background-color: $light-gray;
-      -webkit-box-shadow: 0 .25em 0 0 $gray;
-      -moz-box-shadow: 0 .25em 0 0 $gray;
-      box-shadow: 0 .25em 0 0 $gray;
+      color: $white;
+      background-color: darken($light-gray, 8%);
     }
   }
 }
@@ -139,8 +156,9 @@ hr { border-top: 1px solid rgba($border-gray, 0.25); }
   display: block;
   padding: 50px 0; 
   margin: 0;
+  @include clearfix;
 
-  h2 { margin-bottom: 20px; }
+  h2 { margin-bottom: 10px; }
 
   .description {
 
@@ -151,6 +169,8 @@ hr { border-top: 1px solid rgba($border-gray, 0.25); }
   }
 
   &.gray { background-color: $light-gray; }
+
+  &.module-noncontent { min-height: 500px; }
 }
 
 .module-default,
@@ -187,9 +207,37 @@ hr { border-top: 1px solid rgba($border-gray, 0.25); }
   @include aspect-ratio(4,3,false);
 }
 
-#wpadminbar { 
-  top: auto;
-  bottom: 0;
+.left { float: left; }
+
+.right { float: right; }
+
+.social-icons {
+
+  > li { text-align: center;
+
+    a {
+      display: block;
+      width: 30px;
+      height: 30px;
+      padding-top:5px;
+      color: $second-color;
+      background-color: transparent;
+      border: $second-color 1px solid;
+      @include rounded(50%);
+      @include font-size(1.6);
+
+      .fa { margin-left: -2px; }
+
+      .social-text { display: none; }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $white;
+        border-color: $white;
+      } 
+    }
+  }
 }
 
 .error-404 {
@@ -199,8 +247,8 @@ hr { border-top: 1px solid rgba($border-gray, 0.25); }
 
 .acf-map {
   width: 100%;
-  height: 35vw;
-  min-height: 400px;
+  height: 18vw;
+  min-height: 250px;
 }
 
 /* fixes potential theme css conflict */
@@ -218,15 +266,38 @@ hr { border-top: 1px solid rgba($border-gray, 0.25); }
   z-index: 10;
 }
 
+/* CSS animations */
+@-webkit-keyframes zoom {
+    from { -webkit-transform: scale(1,1); }
+    to { -webkit-transform: scale(1.4,1.4); }
+}
+
+@keyframes zoom {
+   from { transform: scale(1,1); }
+   to { transform: scale(1.4,1.4); }
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
 @media only screen and (max-width: $breakpoint) {
 
   .container { width: 100%; }
+
+  .desktop { display: none; }
+
+  .mobile { display: block; }
 }
 
 @media only screen and (min-width: $breakpoint) {
 
   body { @include font-size(1.6); }
-
 
   h1 { @include font-size(2.8); }
   h2 { @include font-size(2.4); }
@@ -234,16 +305,16 @@ hr { border-top: 1px solid rgba($border-gray, 0.25); }
   h4 { @include font-size(2); }
   h5 { @include font-size(1.8); }
 
-  .desktop { display: block; }
-
-  .mobile { display: none; }
-
 }
 
 @media only screen and (min-width: $desktop) {
 
-  body { @include font-size(1.8); }
+  .container {
+    width: 75%;
+    max-width: 1170px;
+  }
 
+  body { @include font-size(1.8); }
 
   h1 { @include font-size(3.8); }
   h2 { @include font-size(3); }

@@ -1,0 +1,152 @@
+/**************************************************************************************************
+ *
+ *  @Section: Module - Feature Content
+ *
+***************************************************************************************************/
+.module.module-feature-content {
+	padding: 0;
+	background-color: $main-color;
+	min-height: 150px;
+
+	.item {
+		position: relative;
+		margin-top: -110px;
+		height: 260px;
+		z-index: 1010;
+		
+		* { @include transition(all, 0.5s, ease-in-out); }
+
+		.link,
+		.square-item {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		.square-item {
+			display: block;
+			height: 200px;
+			background-repeat: no-repeat;
+			background-position: top -26vh center;
+			background-size: cover;
+			border: 5px solid transparent;
+			@include opacity(0);
+		}
+
+		.circle-item {
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			border: 5px solid $second-color;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			background-color: $white;
+			@include rounded(50%);
+			@include centered-xy;
+			top: 40%;
+			@include opacity(1);
+		}
+
+		.description {
+			position: absolute;
+			top: 185px;
+			width: 100%;
+			padding: 0 20px;
+			text-align: center;
+			@include centered-x;
+		}
+
+		.button-text {
+			position: absolute;
+			bottom: 30%;
+			width: 100%;
+			padding: 0 20px;
+			text-align: center;
+			@include centered-x;
+		}
+
+		.title,
+		.button-text {
+			font-weight: 300;
+			@include font-size(1.8);
+		}
+
+		.button-text {
+			font-family: $font-heading;
+			@include opacity(0); 
+		}
+
+		.link {
+			height: 100%;
+			color: $white;
+			background-color: transparent;
+			text-transform: uppercase;
+
+			&:hover,
+			&:focus,
+			&:active { background-color: $second-color;
+				
+				.button-text {
+					margin: 0;
+					bottom: auto;
+					@include centered-xy;
+					top: 40%;
+					@include text-shadow;
+				}
+
+				.button-text { @include opacity(1); }
+
+				.square-item {
+					border-color:$second-color;
+					background-position: center;
+					@include opacity(1);
+				}
+
+				.circle-item {
+					background-position: top -26vh center;
+					background-color: rgba($second-color, 0.8);
+					@include opacity(1);
+				}
+			}
+		}		
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module.module-feature-content {
+		padding: 20px;
+		max-height: none;
+		
+		.item {
+			margin-top: 0;
+			margin-bottom: 20px;
+			
+			.link { background-color: transparent;
+					
+				.button-text {
+					margin: 0;
+					bottom: auto;
+					@include centered-xy;
+					top: 40%;
+					@include text-shadow;
+				}
+
+				.button-text { @include opacity(1); }
+
+				.square-item {
+					background-position: center;
+					@include opacity(1);
+				}
+
+				.circle-item {
+					background-position: top -26vh center;
+					background-color: rgba($second-color, 0.8);
+					@include opacity(1);
+				}
+			}		
+		}
+	}
+}

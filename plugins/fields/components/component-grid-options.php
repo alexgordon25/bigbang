@@ -19,6 +19,7 @@ acf_add_local_field_group(array(
 			'choices' => array(
 				'post' => 'Post items',
 				'square' => 'Square Thumbs',
+				'post_left_thumb' => 'Post with left thumb',
 			),
 			'default_value' => array(
 				0 => 'post',
@@ -94,8 +95,6 @@ acf_add_local_field_group(array(
 				'ID' => 'Post ID',
 				'type' => 'type',
 				'title' => 'title',
-				'rand' => 'Random',
-				'rand' => 'Random',
 				'rand' => 'Random',
 			),
 			'default_value' => array(
@@ -313,9 +312,9 @@ acf_add_local_field_group(array(
 			'prefix_name' => 0,
 			'display' => 'group',
 			'layout' => 'block',
-			'key' => 'component_grid_options_grid_button_link',
+			'key' => 'component_grid_options_button_link',
 			'label' => 'Button Link',
-			'name' => 'grid_button_link',
+			'name' => 'button_link',
 			'type' => 'clone',
 			'instructions' => '',
 			'required' => 0,

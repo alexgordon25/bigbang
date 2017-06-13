@@ -25,7 +25,7 @@ function bigbang_scripts() {
 
     if ( $framework === 'bootstrap' ) {
 		// Register bootstrap js.
-		wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), '3.3.5', true );
+		wp_enqueue_script( 'bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), '3.3.7', true );
 	}
 
 	// Add Modernizr.
