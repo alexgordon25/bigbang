@@ -1,0 +1,49 @@
+/**************************************************************************************************
+ *
+ *  @Section: Module - Slideshow
+ *
+***************************************************************************************************/
+#slideshow-gallery {
+
+	.container { padding: 0; }
+}
+
+#slideshow-thumbnail {
+	margin-top: 20px;
+
+	.container {
+		padding: 10px;
+		background-color: $light-gray;
+		@include rounded(5px);
+	}
+
+	.card-slide-gallery {
+		min-height: auto;
+		
+		.blur-bkg,
+		.shadow-bkg { display: none; }
+
+		.container {
+			width: 100%;
+			min-width: auto;
+			padding: 0 5px;
+		}
+
+		.image-container {
+			@include aspect-ratio(16,9);
+			@include transition;
+		}
+	}
+
+	.slides { padding: 0 30px; 
+	
+		.slick-arrow { 
+			color: $gray;
+			padding: 0 5px;
+		} 
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+}

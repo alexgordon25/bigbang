@@ -1,0 +1,152 @@
+/**************************************************************************************************
+ *
+ *  @Section: Card - Slide Default
+ *
+***************************************************************************************************/
+.card-slide-default {
+	height: 45vw;
+	position: relative;
+	min-height: 350px;
+	max-height: 500px;
+	transform: translate(0,0);
+
+	.bkg-image-container {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.item-image {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $main-color;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+	}
+
+	.shadow-bkg,
+	.link-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.shadow-bkg {
+		background: -moz-linear-gradient(
+			top, 
+			rgba($black,0.2) 0%, 
+			rgba($black,0.4) 60%, 
+			rgba($black,0.8) 100%
+		);
+		background: -webkit-linear-gradient(
+			top, 
+			rgba($black,0.2) 0%,
+			rgba($black,0.4) 60%,
+			rgba($black,0.8) 100%
+		);
+		background: linear-gradient(
+			to bottom, 
+			rgba($black,0.2) 0%,
+			rgba($black,0.4) 60%,
+			rgba($black,0.8) 100%
+		);
+		filter: progid:DXImageTransform.Microsoft.gradient( 
+			startColorstr='#00000000', 
+			endColorstr='#99000000',
+			GradientType=0 
+		);
+	}
+
+	.container {
+		position: relative;
+		height: 100%;
+	}
+
+	.description-container {
+		position: absolute;
+		display: block;
+		width: 70%;
+		margin: 0 auto;
+		padding: 10px;
+		color: $white;
+		text-align: center;
+		@include centered-xy;
+		@include text-shadow($black, 0.2);
+
+		.tagline,
+		.headline {
+			color: $white;
+			text-transform: uppercase;
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+
+		.tagline {
+			display: block;
+			margin-bottom: 0;
+			color: $light-second-color;
+			font-family: $font-heading;
+			@include font-size(2);
+		}
+
+		h1 { @include font-size(4.5);	}
+
+		h2 { @include font-size(4); }
+
+		h3 { @include font-size(3.5); }
+
+		p { @include font-size(2); }
+
+		.btn {
+			margin-top: 10px;
+			position: relative;
+		}
+	}
+
+	.link-container {
+		background-color: transparent;
+
+		&:hover,
+		&:focus,
+		&:active { background-color: rgba($black, 0.10); }	
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.card-slide-default { background-size: cover; 
+	
+		.description-container {
+			padding: 10px 40px;
+			min-width: auto;
+			max-width: none;
+			width: 100%;
+
+			.tagline,
+			.headline { margin-bottom: 2px; }
+
+			.tagline { @include font-size(1.4); }
+
+			h1 { @include font-size(2.2); }
+
+			h2 { @include font-size(2); }
+
+			h3 { @include font-size(1.6); }
+
+			p { @include font-size(1.4); }
+
+			.btn {
+				left: 0;
+				padding: 5px 15px;
+			}
+		}
+	}
+}

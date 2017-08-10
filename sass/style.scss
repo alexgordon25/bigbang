@@ -27,18 +27,32 @@ Text Domain: bigbang
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 // Templates/Modules.
-@import "./modules/module-slideshow";
-// @import "./modules/module-hero";
-// @import "./modules/module-blog";
-// @import "./modules/module-videoform";
-// @import "./modules/module-newsletter";
+@import "modules/module-slideshow";
+@import "modules/module-form";
+@import "modules/module-3steps";
+@import "modules/module-services";
+@import "modules/module-testimonials";
+@import "modules/module-blog";
+@import "modules/module-newsletter";
+@import "modules/module-hero";
+@import "modules/module-content-boxes";
+@import "modules/module-feature-content";
+// @import "modules/module-grid";
+// @import "modules/module-slideshow-gallery";
+// @import "modules/module-videoform";
 
-// Templates/Components.
-// @import "./components/component-carousel";
+// Templates/Cards.
+@import "cards/card-add-heading";
+@import "cards/card-background";
+@import "cards/card-slide-default";
+// @import "cards/card-slide-gallery";
+// @import "cards/card-square-thumbs";
+@import "cards/card-posts";
 
 // Templates/Pages.
-// @import "./pages/homepage";
+// @import "pages/homepage";
 
 // Templates/Single Pages.
-// @import "./pages/single";
+@import "pages/single-service";
+// @import "pages/single";
  

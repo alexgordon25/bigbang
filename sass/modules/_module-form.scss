@@ -1,0 +1,165 @@
+/**************************************************************************************************
+ *
+ *  @Section: Module - Form
+ *
+***************************************************************************************************/
+.module.module-form {
+
+	&.default-form { padding: 50px 0 100px}
+
+	&.float-form {
+		padding: 0;
+
+		.container { position: relative; }
+
+		$form-heading-height: 100px;
+
+		&.alignleft .form-wrapper { left: 0; }
+
+		&.alignright .form-wrapper { right: 0; }
+
+		.form-wrapper {
+			position: absolute;
+			width: 325px;
+			top: -#{$form-heading-height};
+			background-color: $light-gray;
+			z-index: 1010;
+
+			.description {
+				margin: 0;
+				padding: 20px 20px 20px 100px;
+				height: $form-heading-height;
+				background-color: $second-color;
+
+				&:before {
+					content: '\f298';
+					font-family: 'fontawesome';
+					position: absolute;
+					left: 20px;
+					display: inline-block;
+					padding: 5px 15px;
+					text-align: center;
+					color: $white;
+					background-color: $dark-second-color;
+					@include font-size(4);
+					@include box-shadow(3px, 3px, 3px, rgba($gray, 0.4));
+				}
+				
+				.tagline {
+					margin: 5px 0 0;
+					color: $white;
+					text-transform: initial;
+					font-weight: 300;
+					@include font-size(1.6);
+				}
+
+				h2,
+				h2 span {
+					color: $white;
+					font-weight: 700;
+					@include font-size(2);
+				}
+
+				h2 {
+					margin: 0;
+					padding: 0;
+
+					&:before,
+					&:after { display: none; }
+				}
+			}
+
+			.form-container {
+				position:  relative;
+				padding: 20px;
+				min-height: 400px;
+				@include font-size(1.6);
+
+				.nf-form-fields-required { display: none; }
+
+				input[type="button"] { 
+					position: relative;
+					margin: 20px 0 10px;
+					@include centered-x;
+				}
+
+				.nf-response-msg {
+					position: absolute;
+					text-align: center;
+					@include centered-xy;
+				}
+			}
+		}
+
+		&.alignleft + .module .container { padding-left: 350px; }
+
+		&.alignright + .module .container { padding-right: 350px; }
+	}
+
+	&.w-background {
+		padding: 100px 0;
+		background-image: url('img/form-background.png');
+		background-color: $second-color;
+
+		.bkg-image-container { width: 45%; }
+
+		.container { padding-left: 200px; }
+
+		.form-wrapper {
+			position:  relative;
+			padding: 5px 50px;
+			background-color: $white;
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module.module-form {
+
+		&.default-form { padding: 0 0 50px; }
+
+		&.float-form {
+
+			.container { padding: 0; }
+
+			.form-wrapper {
+				position: static;
+				width: 100%;
+
+				.description {
+
+					&:before { 
+						content: '\f107';
+					    cursor: pointer;
+					}
+				}
+
+				.form-container { 
+					display: none;
+
+					&.collapsed { display: block; }
+				}
+
+			}
+			
+			&.alignleft + .module .container { padding-left: 15px; }
+
+			&.alignright + .module .container { padding-right: 15px; }
+		}
+
+		&.w-background {
+			padding: 50px 0;
+
+			.bkg-image-container { width: 75%; }
+
+			.container { padding-left: 15px; }
+
+			.form-wrapper {
+				position:  relative;
+				padding: 5px 20px;
+				background-color: $white;
+			}
+		}
+	}
+}

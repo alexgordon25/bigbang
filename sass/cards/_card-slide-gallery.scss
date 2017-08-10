@@ -1,0 +1,185 @@
+/**************************************************************************************************
+ *
+ *  @Section: Card - Slide Gallery
+ *
+***************************************************************************************************/
+.card-slide-gallery {
+	position: relative;
+	transform: translate(0,0);
+
+	#blur-container {
+		position:absolute;
+  		left:-999px;
+	}
+
+	.blur-bkg {
+		position: absolute;
+		width: 100vw;
+		height: 100%;
+		background-color: $blue;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		@include blur;
+	}
+
+	.image-container {
+		@include aspect-ratio(16,7, false);
+		@include transition;
+	}
+
+	.item-image {
+		background-color: $blue;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+	}
+
+	.shadow-bkg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.shadow-bkg {
+		background: -moz-linear-gradient(
+			top, 
+			rgba($black,0) 0%, 
+			rgba($black,0.3) 70%, 
+			rgba($black,0.6) 100%
+		);
+		background: -webkit-linear-gradient(
+			top, 
+			rgba($black,0) 0%,
+			rgba($black,0.3) 70%,
+			rgba($black,0.6) 100%
+		);
+		background: linear-gradient(
+			to bottom, 
+			rgba($black,0) 0%,
+			rgba($black,0.3) 70%,
+			rgba($black,0.6) 100%
+		);
+		filter: progid:DXImageTransform.Microsoft.gradient( 
+			startColorstr='#00000000', 
+			endColorstr='#99000000',
+			GradientType=0 
+		);
+	}
+
+	.container {
+		position: relative;
+		height: 100%;
+	}
+
+	.description {
+		position: absolute;
+		display: block;
+		width: 80%;
+		margin: 0 auto;
+		padding: 10px;
+		color: $white;
+		text-align: center;
+		@include centered-xy;
+		@include text-shadow($dark-blue, 0.2);
+		@include rounded(5px);
+
+		span,
+		h1,
+		h2,
+		h3 { 
+			text-transform: uppercase;
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+
+		span {
+			display: block;
+			color: $light-green;
+			font-family: $font-heading;
+			font-size: 1.5vw;
+			line-height: 1.5vw;
+		}
+
+		h1 {
+			font-size: 4vw;
+			line-height: 4.2vw;
+		}
+
+		h2 {
+			font-size: 3.6vw;
+			line-height: 3.8vw;
+		}
+
+		h3 {
+			font-size: 2.5vw;
+			line-height: 2.7vw;
+		}
+
+		p {
+			font-size: 1.5vw;
+			line-height: 1.7vw;
+		}
+
+		.btn {
+			margin-top: 10px;
+			position: relative;
+		}
+	}
+
+	.link-container {
+		background-color: transparent;
+
+		&:hover,
+		&:focus,
+		&:active { background-color: rgba($black, 0.10); }	
+	}
+}
+
+
+@media only screen and (max-width: $breakpoint) {
+
+	.card-slide-default { background-size: cover; 
+	
+		.description {
+			bottom: 0;
+			padding: 10px 25px;
+			min-width: auto;
+			max-width: none;
+			width: 100%;
+			// color: $white;
+			// background-color: rgba($blue, 0.5);
+			background: -moz-linear-gradient(top,  rgba($white, 0) 0%, rgba($white, 0.3) 9%, rgba($white, 0.3) 100%);
+			background: -webkit-linear-gradient(top,  rgba($white, 0) 0%,rgba($white, 0.3) 9%,rgba($white, 0.3) 100%);
+			background: linear-gradient(to bottom,  rgba($white, 0) 0%,rgba($white, 0.3) 9%,rgba($white, 0.3) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#4dffffff',GradientType=0 );
+
+			@include rounded(0px);
+
+			span,
+			h1,
+			h2,
+			h3 { margin-bottom: 2px; }
+
+			span { @include font-size(1.4); }
+
+			h1 { @include font-size(2.2); }
+
+			h2 { @include font-size(2); }
+
+			h3 { @include font-size(1.6); }
+
+			p { @include font-size(1.4); }
+
+			.btn {
+				left: 0;
+				width: 100%;
+			    padding: 5px 15px;
+				@include transform(translateX(0));
+			}
+		}
+	}
+}

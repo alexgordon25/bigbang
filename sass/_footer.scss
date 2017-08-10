@@ -3,21 +3,198 @@
  *  @Section: Footer
  *
 ***************************************************************************************************/
-footer {
-	padding-top: 20px;
-	min-height: 60px;
+.footer-content {
+	position: relative;
+	padding: 50px 0;
 	color: $white;
-	background-color: $dark-gray;
+	background-color: $main-color;
+	@include font-size(1.4);
+
+	p { @include font-size(1.4); }
+
+	.item {
+
+		.item-element { margin-bottom: 20px; }
+
+		h2 {
+			margin: 15px 0;
+			padding-right: 15px;
+			display: inline-block;
+			text-transform: uppercase;
+			@include font-size(2);
+		}
+
+		h5 {
+			@include font-size(1.4);
+		}
+
+		a {
+			color: $second-color;
+
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: none;
+				color: $light-second-color;
+
+				.thumb { outline: 1px solid $link-text-hover; }
+			}
+		}
+
+		.social-icons {
+
+			> li {
+
+				a {
+					color: #9299a6;
+					border-color: #9299a6;
+
+					&:hover,
+					&:focus,
+					&:active {
+						color: $white;
+						border-color: $second-color;
+						background-color: $second-color;
+					}
+				}
+			}
+		}
+
+		.acf-map { margin: 0 0 20px; }
+	}
 
 	#scroll-top {
-		position: relative;
-		margin-top: -10px;
-		float: right;
+		position: absolute;
+		top: -50px;
+		right: 15px;
+		width: 40px;
+		height: 40px;
+		padding: 2px 5px 5px;
 		color: $white;
+		text-align: center;
+		background-color: $second-color;
+		z-index: 1010;
 		@include font-size(2.5);
+		@include rounded(50%);
 
 		&:hover,
 		&:focus,
 		&:active { @include opacity(0.5); }
+	}
+}
+
+footer {
+	padding: 20px 0;
+	min-height: 80px;
+	color: $white;
+	background-color: $dark-main-color;
+	@include font-size(1.4);
+
+	.copyright {
+		margin: 10px 0;
+	}
+
+	.nav-footer {
+		position: absolute;
+		right: 0;
+		@include centered-y;
+
+		li {
+					
+			a {
+				color: $white;
+				margin: 0;
+				font-family: $font-heading;
+				font-weight: 200;
+				text-transform: uppercase;
+
+				&:hover,
+				&:focus,
+				&:active { color: $second-color; }
+
+				&:after {
+					content: '|';
+					display: inline-block;
+					position: absolute;
+					margin-left: 5px;
+					color: $second-color;
+				}
+			}
+
+			&:last-child a:after { display: none; }
+
+			&.current-menu-item {
+
+				a { color: $second-color; }
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+	
+	.footer-content {
+		text-align: center;
+		
+
+		.item {
+			width: 80%;
+			margin: 0 auto;
+			float: none;
+
+			h5 {
+				@include font-size(1.4);
+			}
+
+			a {
+				color: $second-color;
+
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+					color: $light-second-color;
+
+					.thumb { outline: 1px solid $link-text-hover; }
+				}
+			}
+
+			.social-icons {
+
+				> li {
+
+					a { color: $white; }
+				}
+			}
+		}
+
+		#scroll-top {
+			position: absolute;
+			top: -50px;
+			right: 15px;
+			width: 40px;
+			height: 40px;
+			padding: 2px 5px 5px;
+			color: $white;
+			text-align: center;
+			background-color: $second-color;
+			z-index: 1010;
+			@include font-size(2.5);
+			@include rounded(50%);
+
+			&:hover,
+			&:focus,
+			&:active { @include opacity(0.5); }
+		}
+	}
+
+	footer {
+		padding-top: 20px;
+		min-height: 60px;
+		text-align: center;
+		color: $white;
+		background-color: $dark-main-color;
+
+		.nav-footer { display: none; }
 	}
 }

@@ -123,7 +123,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'max' => 0,
 				'layout' => 'block',
 				'button_label' => 'Add Slide',
-				'collapsed' => 'module_slideshow_field_slide_type',
+				'collapsed' => 'module_slideshow_field_default_slide_component_slide_field_image',
 				'key' => 'module_slideshow_field_slides',
 				'label' => 'Slides',
 				'name' => 'slides',

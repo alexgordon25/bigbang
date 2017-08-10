@@ -1,0 +1,81 @@
+/**************************************************************************************************
+ *
+ *  @Section: Module - Blog
+ *
+***************************************************************************************************/
+.module.module-blog {
+
+	.heading-container {
+	    
+		.card-heading { margin-top: 0; }
+
+		.card-button { margin-bottom: 50px; }
+	}
+	
+	.blog-container {
+
+		.card-blog-post {
+			margin-bottom: 20px;
+
+			a.item-link {
+				position: relative;
+				width: 100%;
+
+				&:hover,
+				&:focus,
+				&:active { @include transform( scale(1.05) ); }
+			}
+
+			.title-link { 
+				width: 100%;
+				padding: 10px 0;
+			}
+
+			.info {
+				position: absolute;
+				top: 0;
+				color: $white;
+				font-weight: 700;
+
+				span {
+					display: block;
+					padding: 5px 10px;
+					text-align: center;
+				}
+
+				.date-month { background-color: $second-color; }
+
+				.date-day { background-color: $main-color; }
+			}
+
+			.image-container {
+				margin: 0;
+				@include aspect-ratio(16,9,true);
+				@include transition;
+			}
+
+			.description {				
+
+				h4 { margin: 0; }
+			}
+		}
+
+		.btn-container {
+			position: relative;
+			display: block;
+			width: 100%;
+			min-height: 1px;
+			margin: 20px 0 50px;
+		    padding-right: 15px;
+		    padding-left: 15px;
+			float: left;
+			text-align: center;
+
+			a { margin-bottom: 0;}
+		}
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+}

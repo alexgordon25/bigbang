@@ -5,13 +5,18 @@
  * @package bigbang
  */
 
+$module_name = 'newsletter';
+
 // Common Fields.
-$custom_id = get_sub_field( 'custom_id' );
-$custom_class = get_sub_field( 'custom_class' );
+include( locate_template( '/plugins/helpers/common-fields.php' ) );
+
+// Background Fields.
+include( locate_template( '/plugins/helpers/background.php' ) );
 ?>
 
-<section class="module module-newsletter <?php echo esc_attr( $custom_class ); ?>" 
-	id="<?php echo esc_attr( $custom_id ); ?>">
+<section <?php echo $module_attr; ?>>
+	
+	<?php include( locate_template( $GLOBALS['framework_path'] . '/partials/card-background.php' ) ); ?>
 
 	<div class="container">
 		

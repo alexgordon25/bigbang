@@ -13,6 +13,18 @@
   text-shadow: 2px 2px 5px rgba($color, $porcentage);
 }
 
+@mixin box-shadow($left: 0px, $top: 0px, $blur: 5px, $color: rgba($gray, 0.4), $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $left $top $blur $color;
+    -moz-box-shadow:inset $left $top $blur $color;
+    box-shadow:inset $left $top $blur $color;
+  } @else {
+    -webkit-box-shadow: $left $top $blur $color;
+    -moz-box-shadow: $left $top $blur $color;
+    box-shadow: $left $top $blur $color;
+  }
+}
+
 // Center block
 @mixin center-block {
   display: block;
@@ -21,16 +33,19 @@
 }
 
 // Clearfix
-@mixin clearfix() {
-  content: "";
-  display: table;
-}
+@mixin clearfix {
+  
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
 
-// Clear after (not all clearfix need this also)
-@mixin clearfix-after() {
-  clear: both;
-  height: 0;
-  line-height: 0;
+  &:after {
+    clear: both;
+    height: 0;
+    line-height: 0;  
+  }
 }
 
 // Transitions

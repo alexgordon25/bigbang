@@ -1,0 +1,72 @@
+/**************************************************************************************************
+ *
+ *  @Section: Card - Heading
+ *
+***************************************************************************************************/
+.module {
+
+	.card-heading {
+		width: 100%;
+		margin: 50px auto;
+
+		.tagline,
+		.headline {
+			text-transform: uppercase;
+			margin-top: 0;
+		}
+
+		.headline {
+			position: relative;
+			display: block;
+			width:100%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 20px;
+			padding-bottom: 25px;
+			color: $second-color;
+			
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				display: block;
+				width: 50px;
+				height: 5px;
+			}
+
+			&:before { background-color: $second-color; }
+
+			&:after {
+				margin-left: 50px;
+				background-color: $main-color;
+			}
+
+			span { 
+				font-weight: 700;
+				color: $main-color;
+			}
+		}
+
+		.tagline {
+			display: block;
+			color: $second-color;
+			font-weight: bold;
+			 @include font-size(1.6);
+		}
+
+		
+	}
+}
+
+@media only screen and (max-width: $breakpoint) {
+
+	.module {
+
+		.card-heading {
+			margin: 50px auto 25px;
+
+			> span { @include font-size(1.4); }
+		}
+	}
+}

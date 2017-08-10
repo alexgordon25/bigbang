@@ -14,13 +14,29 @@ acf_add_local_field_group(array(
 	'title' => 'component-heading',
 	'fields' => array(
 		array(
+			'placement' => 'top',
+			'endpoint' => 0,
+			'key' => 'component_heading_field_tab_add_heading',
+			'label' => 'Add Heading',
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+		),
+		array(
 			'multiple' => 0,
 			'allow_null' => 0,
 			'choices' => array(
 				'disable' => 'Disable',
-				'h1' => '< h1 >',
-				'h2' => '- < h2 >',
-				'h3' => '-- < h3 >',
+				'h1' => 'Headline 1 -h1',
+				'h2' => 'Headline 2 -- h2',
+				'h3' => 'Headline 3 --- h3',
 			),
 			'default_value' => array(
 				0 => 'disable',
@@ -108,7 +124,15 @@ acf_add_local_field_group(array(
 			'type' => 'textarea',
 			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => '',
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'component_heading_field_headline_tag',
+						'operator' => '!=',
+						'value' => 'disable',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
